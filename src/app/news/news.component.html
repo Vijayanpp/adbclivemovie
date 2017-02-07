@@ -1,45 +1,45 @@
-<div class="mdl-grid">
+<div class="mdl-grid search-results">
     <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-phone mdl-cell--12-col-tablet ">
         <ul class="demo-list-icon mdl-list">
             <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
-            <i class="material-icons">hourglass_full</i>
+           <i class="material-icons">details</i>
             <a href='#' routerLink="/general" routerLinkActive="active">General</a>
             </span>
             </li>
             <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
-            <i class="material-icons">remove_from_queue</i>
+            <i class="material-icons">wallpaper</i>
             <a href='#' routerLink="/Entertainment" routerLinkActive="active">Entertainment</a>
             </span>
             </li>
             <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
-            <i class="material-icons">movie_filter</i>
+           <i class="material-icons">directions_bike</i>
             <a href='#' routerLink="/Sports" routerLinkActive="active">Sports</a>
             </span>
             </li>
             <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
-            <i class="material-icons">flash_on</i>
+            <i class="material-icons">device_hub</i>
             <a href='#' routerLink="/Business" routerLinkActive="active">Business</a>
             </span>
             </li>
             <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
-            <i class="material-icons">flash_on</i>
+           <i class="material-icons">wb_incandescent</i>
             <a href='#' routerLink="/Science" routerLinkActive="active">Science</a>
             </span>
             </li>
             <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
-            <i class="material-icons">flash_on</i>
+           <i class="material-icons">memory</i>
             <a href='#' routerLink="/Technology" routerLinkActive="active">Technology</a>
             </span>
             </li>
             <li class="mdl-list__item">
                 <span class="mdl-list__item-primary-content">
-            <i class="material-icons">library_music</i>
+           <i class="material-icons">music_video</i>
             <a href='#' routerLink="/Music" routerLinkActive="active">Music</a>
             </span>
             </li>
@@ -56,12 +56,14 @@
             <li class="mdl-menu__item" (click)="adbcd('Mollywood')">Mollywood</li>
         </ul>
         
-     <masonry infinite-scroll  [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300"    (scrolled)="onScrollDown()" >
+     <masonry>
     <masonry-brick class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--12-col-tablet " *ngFor='let news of mainnews'>
             <adbcd-newscard [news]="news">
             </adbcd-newscard>
      </masonry-brick>
     </masonry>
+
+
     </div>
 
 

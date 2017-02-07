@@ -7,7 +7,7 @@ import { InfiniteScroll } from 'angular2-infinite-scroll';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-	private mainnews;
+	private mainnews=[];
   constructor(private fetchdata:FetchdataService ) { }
 
   ngOnInit() {
@@ -18,13 +18,14 @@ export class NewsComponent implements OnInit {
   {
   this.fetchdata._fetchNews(url).subscribe(news=>
    {
-   	this.mainnews=news.articles;
+   this.mainnews=this.mainnews.concat(news.articles);
+   	
     })
    }
 
  onScrollDown () {
-    console.log('scrolled!!');
-
+    console.log('scrolled!!+dfkdf');
+   this.fetchNewsFromSource("https://newsapi.org/v1/articles?source=bbc-sport&sortBy=top&apiKey=3e22f2fcc1344975ae2b2e69379e2a6e"); 
     // add another 20 items
    
   }
