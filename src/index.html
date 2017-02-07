@@ -2,13 +2,86 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Adbcdlivemedia</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="World of Entertainment">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sample</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Firebase Database Quickstart">
+  <meta name="theme-color" content="#303F9F">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Firebase Database Quickstart">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
+
+  <!-- Tile icon for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+  <meta name="msapplication-navbutton-color" content="#303F9F">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+   <!-- Material Design Lite -->
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-orange.min.css">
+  <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  <!-- Icon fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/flaticon.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet" href="assets/css/main.css">
+
+
+  
+  <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAo0-r8hyB68kqn-ZUpiW232V807g97fig",
+    authDomain: "sampleapp2-bc865.firebaseapp.com",
+    databaseURL: "https://sampleapp2-bc865.firebaseio.com",
+    storageBucket: "sampleapp2-bc865.appspot.com",
+    messagingSenderId: "913257864395"
+  };
+  firebase.initializeApp(config);
+</script>
+
 </head>
 <body>
-  <app-root>Loading...</app-root>
+ <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '568461570013753',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+   <!-- Header section containing logo and menu -->
+  
+   <app-root>Loading...</app-root>
+
+</div>
+ 
 </body>
 </html>
