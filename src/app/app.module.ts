@@ -15,6 +15,12 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { AppComponent } from './app.component';
 import { NewsComponent } from './news/news.component';
 import { NewscardComponent } from './newscard/newscard.component';
+import { EntertainmentnewsComponent } from './entertainmentnews/entertainmentnews.component';
+import { SportscomponentComponent } from './sportscomponent/sportscomponent.component';
+import { BusinesscomponentComponent } from './businesscomponent/businesscomponent.component';
+import { SciencecomponentComponent } from './sciencecomponent/sciencecomponent.component';
+import { TechnologynewsComponent } from './technologynews/technologynews.component';
+import { MusicnewsComponent } from './musicnews/musicnews.component';
 
 
 
@@ -22,7 +28,13 @@ import { NewscardComponent } from './newscard/newscard.component';
   declarations: [
     AppComponent,
     NewsComponent,
-    NewscardComponent    
+    NewscardComponent,
+    EntertainmentnewsComponent,
+    SportscomponentComponent,
+    BusinesscomponentComponent,
+    SciencecomponentComponent,
+    TechnologynewsComponent,
+    MusicnewsComponent    
   ],
   imports: [
     BrowserModule,

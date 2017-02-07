@@ -563,7 +563,8 @@ background:#fff;
 
 .adbcd-card-square > .mdl-card__title {
   color: #fff;
-  height:200px
+  height:auto;
+  min-height: 250px;
 
   
 }

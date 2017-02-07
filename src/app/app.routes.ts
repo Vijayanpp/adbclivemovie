@@ -1,5 +1,11 @@
 import { Routes } from '@angular/router';
 import { NewsComponent } from './news/news.component';
+import { EntertainmentnewsComponent } from './entertainmentnews/entertainmentnews.component';
+import { SportscomponentComponent } from './sportscomponent/sportscomponent.component';
+import { BusinesscomponentComponent } from './businesscomponent/businesscomponent.component';
+import { SciencecomponentComponent } from './sciencecomponent/sciencecomponent.component';
+import { TechnologynewsComponent } from './technologynews/technologynews.component';
+import { MusicnewsComponent } from './musicnews/musicnews.component';
 // import { HomepageComponent } from './homepage/homepage.component';
 // import { LoginComponent } from './login/login.component';
 // import { AddpostsampleComponent } from './addpostsample/addpostsample.component';
@@ -15,7 +21,14 @@ import { NewsComponent } from './news/news.component';
 // import { NewspageComponent } from './newspage/newspage.component';
 
 export const appRoutes: Routes = [
-        {path:'',component:NewsComponent}
+        {path:'',component:NewsComponent},
+        {path:'general',component:NewsComponent},
+        {path:'Entertainment',component:EntertainmentnewsComponent},
+        {path:'Sports',component:SportscomponentComponent},
+        {path:'Business',component:BusinesscomponentComponent},
+        {path:'Science',component:SciencecomponentComponent},
+        {path:'Technology',component:TechnologynewsComponent},
+        {path:'Music',component:MusicnewsComponent}
      // {path:'',component:HomepageComponent},
      // {path:'login',component:LoginComponent},
      // {path:'addmoviedata',component:AddpostsampleComponent},
