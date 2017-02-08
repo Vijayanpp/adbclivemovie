@@ -26,6 +26,15 @@ import { TechnologynewsComponent } from './technologynews/technologynews.compone
 import { MusicnewsComponent } from './musicnews/musicnews.component';
 import { PopularmoviesComponent } from './TMDB/popularmovies/popularmovies.component';
 import { LoginComponent } from './login/login.component';
+import { MusicvideosComponent } from './MovieModule/musicvideos/musicvideos.component';
+import { AdbcdMoviecardComponent } from './MovieModule/adbcd-moviecard/adbcd-moviecard.component';
+import { ReviewsComponent } from './MovieModule/reviews/reviews.component';
+import { TrailersComponent } from './MovieModule/trailers/trailers.component';
+import { MovienewsComponent } from './MovieModule/movienews/movienews.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
+import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
 
 
 
@@ -41,7 +50,16 @@ import { LoginComponent } from './login/login.component';
     TechnologynewsComponent,
     MusicnewsComponent,
     PopularmoviesComponent,
-    LoginComponent    
+    LoginComponent,
+    MusicvideosComponent,
+    AdbcdMoviecardComponent,
+    ReviewsComponent,
+    TrailersComponent,
+    MovienewsComponent,
+    AboutComponent,
+    ContactComponent,
+    PrivacypolicyComponent,
+    TermsandconditionsComponent    
   ],
   imports: [
     BrowserModule,

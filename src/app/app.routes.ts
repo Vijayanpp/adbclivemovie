@@ -19,19 +19,18 @@ import { ActorComponent } from './TMDB/actor/actor.component';
 import { PopularmoviesComponent } from './TMDB/popularmovies/popularmovies.component';
 import { LoginComponent } from './login/login.component';
 
-// import { HomepageComponent } from './homepage/homepage.component';
-// import { LoginComponent } from './login/login.component';
-// import { AddpostsampleComponent } from './addpostsample/addpostsample.component';
-// import { InnerpageComponent } from './innerpage/innerpage.component';
-// import { NowrunningComponent } from './nowrunning/nowrunning.component';
-// import { ReviewsComponent } from './reviews/reviews.component';
-// import { TrailersComponent } from './trailers/trailers.component';
-// import { MusicvideosComponent } from './musicvideos/musicvideos.component';
-// import { OffersComponent } from './offers/offers.component';
-// import { AboutusComponent } from './aboutus/aboutus.component';
-// import { ContactusComponent } from './contactus/contactus.component';
-// import { MusicvideoinnerComponent } from './musicvideoinner/musicvideoinner.component';
-// import { NewspageComponent } from './newspage/newspage.component';
+/*Movie*/
+
+import { MusicvideosComponent } from './MovieModule/musicvideos/musicvideos.component';
+import { ReviewsComponent } from './MovieModule/reviews/reviews.component';
+import { TrailersComponent } from './MovieModule/trailers/trailers.component';
+import { MovienewsComponent } from './MovieModule/movienews/movienews.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
+import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
+
+
 
 export const appRoutes: Routes = [
         {path:'',component:NewsComponent},
@@ -45,21 +44,16 @@ export const appRoutes: Routes = [
         {path:'Toprated',component:MoviesComponent},
         {path:'Popular',component:PopularmoviesComponent},
         {path:'Signin',component:LoginComponent},
-        {path: 'Movie/:id', component: MovieComponent}
+        {path: 'Movie/:id', component: MovieComponent},
+        {path: 'Musicvideos', component:MusicvideosComponent},
+        {path:'Reviews',component:ReviewsComponent},
+        {path:'Trailers',component:TrailersComponent},
+        {path:'Movienews',component:MovienewsComponent},
+        {path:'About',component:AboutComponent},
+        {path:'Contact',component:ContactComponent},
+        {path:'Privacypolicy',component:PrivacypolicyComponent },
+        {path:'Termsandconditions',component:TermsandconditionsComponent  }
 
-     // {path:'',component:HomepageComponent},
-     // {path:'login',component:LoginComponent},
-     // {path:'addmoviedata',component:AddpostsampleComponent},
-     // {path:'detail/:id',component:InnerpageComponent},
-     // {path:'musicvideos/detail/:id',component:MusicvideoinnerComponent},
-     // {path:'runningintheater',component:NowrunningComponent},
-     // {path:'reviews',component:ReviewsComponent },
-     // {path:'trailers',component:TrailersComponent },
-     // {path:'musicvideos',component:MusicvideosComponent },
-     // {path:'offers',component:OffersComponent},
-     // {path:'aboutus',component:AboutusComponent},
-     // {path:'contactus',component:ContactusComponent},
-     //  {path:'contactus',component:LoginComponent},
-     //  {path:'news',component:NewspageComponent}
+    
     
 ];
