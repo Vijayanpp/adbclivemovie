@@ -6,6 +6,18 @@ import { BusinesscomponentComponent } from './businesscomponent/businesscomponen
 import { SciencecomponentComponent } from './sciencecomponent/sciencecomponent.component';
 import { TechnologynewsComponent } from './technologynews/technologynews.component';
 import { MusicnewsComponent } from './musicnews/musicnews.component';
+
+/*TMDB*/
+
+import { MoviesComponent } from './TMDB/movies/movies.component';
+import { MovieComponent } from './TMDB/movie/movie.component';
+import { GenresComponent } from './TMDB/genres/genres.component';
+import { UpcomingComponent } from './TMDB/upcoming/upcoming.component';
+import { PopularSeriesComponent } from './TMDB/popular-series/popular-series.component';
+import { SerieComponent } from './TMDB/serie/serie.component';
+import { ActorComponent } from './TMDB/actor/actor.component';
+import { PopularmoviesComponent } from './TMDB/popularmovies/popularmovies.component';
+
 // import { HomepageComponent } from './homepage/homepage.component';
 // import { LoginComponent } from './login/login.component';
 // import { AddpostsampleComponent } from './addpostsample/addpostsample.component';
@@ -28,7 +40,9 @@ export const appRoutes: Routes = [
         {path:'Business',component:BusinesscomponentComponent},
         {path:'Science',component:SciencecomponentComponent},
         {path:'Technology',component:TechnologynewsComponent},
-        {path:'Music',component:MusicnewsComponent}
+        {path:'Music',component:MusicnewsComponent},
+        {path:'Toprated',component:MoviesComponent},
+         {path:'Popular',component:PopularmoviesComponent}
      // {path:'',component:HomepageComponent},
      // {path:'login',component:LoginComponent},
      // {path:'addmoviedata',component:AddpostsampleComponent},

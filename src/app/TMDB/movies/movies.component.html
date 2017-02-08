@@ -1,0 +1,116 @@
+<!-- <p class="pull-right visible-xs">
+  <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+</p>
+<div class="jumbotron">
+  <p>Search for a movie using the form below</p>
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for movies..." [(ngModel)]="searchStr" name="searchStr" (keyup.enter)="searchMovies()">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button" (click)="searchMovies()">Go!</button>
+        </span>
+      </div>
+     
+    </div>
+  </form>
+</div>
+<div *ngIf="searchRes">
+  <h3 class="orange-text">Search Results</h3>
+  <div class="row is-flex">
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of searchRes; let i = index;">
+      <movie-card [movie]="movie"></movie-card>
+    </div>
+  </div>
+</div>
+
+<h3 class="orange-text">Top Rated Movies</h3>
+<div class="row is-flex">
+  <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of topRatedList; let i = index;">
+    <movie-card [movie]="movie"></movie-card>
+  </div>
+</div>
+
+<h3 class="orange-text">Popular Movies</h3>
+<div class="row is-flex">
+  <div class="col-sm-3" *ngFor="let movie of popularList; let i = index;">
+    <movie-card [movie]="movie"></movie-card>
+  </div>
+</div>
+ -->
+
+ <div class="mdl-grid search-results">
+   <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-phone mdl-cell--12-col-tablet ">
+      <ul class="demo-list-icon mdl-list">
+         <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons">perm_media</i>
+            <a href='#' routerLink="/Movienews" routerLinkActive="active">Movie News</a>
+            </span>
+         </li>
+        
+         <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons">movie_filter</i>
+            <a href='#' routerLink="/Reviews" routerLinkActive="active">Reviews</a>
+            </span>
+         </li>
+         <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons">flash_on</i>
+            <a href='#' routerLink="/Trailers" routerLinkActive="active">Trailers</a>
+            </span>
+         </li>
+         <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons">library_music</i>
+            <a href='#' routerLink="/Musicvideos" routerLinkActive="active">Music Videos</a>
+            </span>
+         </li>
+         
+         <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons">donut_large</i>
+            <a href='#' routerLink="/Toprated" routerLinkActive="active">Top Rated </a>
+            </span>
+         </li>
+
+         <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons">theaters</i>
+            <a href='#' routerLink="/Popular" routerLinkActive="active">Popular</a>
+            </span>
+         </li>
+         
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons">receipt</i>
+            <a href='#' routerLink="/Gallery" routerLinkActive="active">Gallery</a>
+            </span>
+         </li>
+
+      </ul>
+   </div>
+
+     <div class="mdl-cell mdl-cell--9-col mdl-cell--12-col-phone mdl-cell--12-col-tablet ">
+        <button id="adbcd-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+            <i class="material-icons share">more_vert</i>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="adbcd-menu-lower-left">
+            <li class="mdl-menu__item" (click)="adbcd('Hollywood')">Hollywood</li>
+            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" (click)="adbcd('Bollywood')"> Bollywood</li>
+            <li class="mdl-menu__item" (click)="adbcd('Kollywood')">Kollywood</li>
+            <li class="mdl-menu__item" (click)="adbcd('Mollywood')">Mollywood</li>
+        </ul>
+        
+     <masonry>
+    <masonry-brick class="mdl-cell mdl-cell--3-col mdl-cell--6-col-phone mdl-cell--6-col-tablet " *ngFor='let movie of topRatedList; let i = index;'>
+            <movie-card [movie]="movie">
+            </movie-card>
+     </masonry-brick>
+    </masonry>
+
+
+    </div>
+    </div>
+

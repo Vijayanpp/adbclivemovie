@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './app.routes';
 
+import {TmdbModule} from './TMDB';
+
 /*Services*/
 
 import {FetchdataService } from '../Provider/fetchdata.service'
@@ -21,6 +23,7 @@ import { BusinesscomponentComponent } from './businesscomponent/businesscomponen
 import { SciencecomponentComponent } from './sciencecomponent/sciencecomponent.component';
 import { TechnologynewsComponent } from './technologynews/technologynews.component';
 import { MusicnewsComponent } from './musicnews/musicnews.component';
+import { PopularmoviesComponent } from './TMDB/popularmovies/popularmovies.component';
 
 
 
@@ -34,7 +37,8 @@ import { MusicnewsComponent } from './musicnews/musicnews.component';
     BusinesscomponentComponent,
     SciencecomponentComponent,
     TechnologynewsComponent,
-    MusicnewsComponent    
+    MusicnewsComponent,
+    PopularmoviesComponent    
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ import { MusicnewsComponent } from './musicnews/musicnews.component';
     HttpModule,
     MasonryModule,
     RouterModule.forRoot(appRoutes),
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    TmdbModule
   ],
   providers: [FetchdataService],
   bootstrap: [AppComponent]
