@@ -17,6 +17,7 @@ import { PopularSeriesComponent } from './TMDB/popular-series/popular-series.com
 import { SerieComponent } from './TMDB/serie/serie.component';
 import { ActorComponent } from './TMDB/actor/actor.component';
 import { PopularmoviesComponent } from './TMDB/popularmovies/popularmovies.component';
+import { LoginComponent } from './login/login.component';
 
 // import { HomepageComponent } from './homepage/homepage.component';
 // import { LoginComponent } from './login/login.component';
@@ -42,7 +43,10 @@ export const appRoutes: Routes = [
         {path:'Technology',component:TechnologynewsComponent},
         {path:'Music',component:MusicnewsComponent},
         {path:'Toprated',component:MoviesComponent},
-         {path:'Popular',component:PopularmoviesComponent}
+        {path:'Popular',component:PopularmoviesComponent},
+        {path:'Signin',component:LoginComponent},
+        {path: 'Movie/:id', component: MovieComponent}
+
      // {path:'',component:HomepageComponent},
      // {path:'login',component:LoginComponent},
      // {path:'addmoviedata',component:AddpostsampleComponent},

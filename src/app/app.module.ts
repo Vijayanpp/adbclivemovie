@@ -13,6 +13,7 @@ import {TmdbModule} from './TMDB';
 import {FetchdataService } from '../Provider/fetchdata.service'
 import { MasonryModule } from 'angular2-masonry';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import { SharedService} from '../Provider/sharedservice.service'
 /*Component*/
 import { AppComponent } from './app.component';
 import { NewsComponent } from './news/news.component';
@@ -24,6 +25,7 @@ import { SciencecomponentComponent } from './sciencecomponent/sciencecomponent.c
 import { TechnologynewsComponent } from './technologynews/technologynews.component';
 import { MusicnewsComponent } from './musicnews/musicnews.component';
 import { PopularmoviesComponent } from './TMDB/popularmovies/popularmovies.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -38,7 +40,8 @@ import { PopularmoviesComponent } from './TMDB/popularmovies/popularmovies.compo
     SciencecomponentComponent,
     TechnologynewsComponent,
     MusicnewsComponent,
-    PopularmoviesComponent    
+    PopularmoviesComponent,
+    LoginComponent    
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ import { PopularmoviesComponent } from './TMDB/popularmovies/popularmovies.compo
     InfiniteScrollModule,
     TmdbModule
   ],
-  providers: [FetchdataService],
+  providers: [FetchdataService,SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
