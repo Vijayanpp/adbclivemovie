@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SharedService} from '../Provider/sharedservice.service'
 import { ActivatedRoute,Router } from '@angular/router';
 import * as Firebase from 'firebase';
-
+declare  var jQuery;
 declare var firebase;
 
 @Component({
@@ -60,4 +60,8 @@ export class AppComponent {
 });
   }
  
+ kk()
+ {
+   jQuery("#pp").css("display","none");
+ }
 }

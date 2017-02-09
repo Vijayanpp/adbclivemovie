@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+.mdl-card__menu {
+    position: absolute;
+    left: 16px!important;
+    top: 16px;
+}

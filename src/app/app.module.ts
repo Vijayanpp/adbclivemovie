@@ -35,6 +35,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
+import { SocialmediaComponent } from './socialmedia/socialmedia.component';
 
 
 
@@ -59,7 +60,8 @@ import { TermsandconditionsComponent } from './termsandconditions/termsandcondit
     AboutComponent,
     ContactComponent,
     PrivacypolicyComponent,
-    TermsandconditionsComponent    
+    TermsandconditionsComponent,
+    SocialmediaComponent    
   ],
   imports: [
     BrowserModule,
