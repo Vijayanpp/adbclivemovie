@@ -12,7 +12,7 @@ export class BusinesscomponentComponent implements OnInit {
   constructor(private fetchdata:FetchdataService ) { }
 
   ngOnInit() {
-  	this.fetchNewsFromSource("https://newsapi.org/v1/articles?source=bbc-sport&sortBy=top&apiKey=3e22f2fcc1344975ae2b2e69379e2a6e");
+  	this.fetchNewsFromSource("https://newsapi.org/v1/articles?source=cnbc&sortBy=top&apiKey=3e22f2fcc1344975ae2b2e69379e2a6e");
   }
   
   fetchNewsFromSource(url)
@@ -23,13 +23,4 @@ export class BusinesscomponentComponent implements OnInit {
    	
     })
    }
-
- onScrollDown () {
-    console.log('scrolled!!+dfkdf');
-   this.fetchNewsFromSource("https://newsapi.org/v1/articles?source=bbc-sport&sortBy=top&apiKey=3e22f2fcc1344975ae2b2e69379e2a6e"); 
-    // add another 20 items
-   
-  }
-
-
-}
+ }

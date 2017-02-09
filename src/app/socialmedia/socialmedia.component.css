@@ -1,10 +1,10 @@
 body {background-color:#333;} 
 #redessociales {
-  width: 64px;
-  height: 64px;
+  width: 54px;
+  height: 54px;
   border-radius: 75px;
   border: 5px solid #fff;
-   background: url(assets/images/social/ic_share_black_24px.svg) no-repeat center;
+   background:#77c159 url(assets/images/social/ic_share_black_24px.svg) no-repeat center;
    cursor: pointer;
 }
 
