@@ -30,7 +30,7 @@ export class TechnologynewsComponent implements OnInit {
 
    this.mainnews=[];
    this.mainnews=this.mainnews.concat(news.articles);
-   for(let i=0;i<=this.mainnews.length;i++)
+   for(let i=0;i<this.mainnews.length;i++)
    {
      this.mainnews[i].source=news.source;
    }
