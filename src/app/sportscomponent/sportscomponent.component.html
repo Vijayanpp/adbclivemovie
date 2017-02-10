@@ -49,11 +49,17 @@
         <button id="adbcd-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
             <i class="material-icons share">more_vert</i>
         </button>
-        <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="adbcd-menu-lower-left">
-            <li class="mdl-menu__item" (click)="adbcd('Hollywood')">Hollywood</li>
-            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" (click)="adbcd('Bollywood')"> Bollywood</li>
-            <li class="mdl-menu__item" (click)="adbcd('Kollywood')">Kollywood</li>
-            <li class="mdl-menu__item" (click)="adbcd('Mollywood')">Mollywood</li>
+         <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="adbcd-menu-lower-left">
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('bbc-sport')">BBC Sport</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('espn')">ESPN</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('espn-cric-info')">ESPN Cric Info </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('football-italia')">Football Italia</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('four-four-two')">FourFourTwo</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('fox-sports')">Fox Sports</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('nfl-news')">NFL News </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('sky-sports-news')">Sky Sports News</li>
+             <li class="mdl-menu__item" (click)="fetchNewsFromSource('the-sport-bible')">The Sport Bible</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('talksport')">TalkSport </li>
         </ul>
         
      <masonry>

@@ -28,7 +28,11 @@ export class EntertainmentnewsComponent implements OnInit {
    {
 
    this.mainnews=[];
-   this.mainnews=this.mainnews.concat(news.articles);   	
+   this.mainnews=this.mainnews.concat(news.articles);
+   for(let i=0;i<=this.mainnews.length;i++)
+   {
+     this.mainnews[i].source=news.source;
+   }	
     })
    }
 
@@ -38,7 +42,7 @@ export class EntertainmentnewsComponent implements OnInit {
 ngOnDestroy()
 {
   this.mainnews=[];
-  this.subscription.unsbscribe();
+  // this.subscription.unsbscribe();
 }
 
 }

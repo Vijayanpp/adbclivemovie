@@ -49,11 +49,17 @@
         <button id="adbcd-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
             <i class="material-icons share">more_vert</i>
         </button>
-        <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="adbcd-menu-lower-left">
-            <li class="mdl-menu__item" (click)="adbcd('Hollywood')">Hollywood</li>
-            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" (click)="adbcd('Bollywood')"> Bollywood</li>
-            <li class="mdl-menu__item" (click)="adbcd('Kollywood')">Kollywood</li>
-            <li class="mdl-menu__item" (click)="adbcd('Mollywood')">Mollywood</li>
+         <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="adbcd-menu-lower-left">
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('cnbc')">CNBC</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('business-insider-uk')">Business Insider</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('espn-cric-info')">ESPN Cric Info </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('bloomberg')">Bloomberg</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('financial-times')">Financial Times</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('fortune')">Fortune</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('handelsblatt')">Handelsblatt </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('the-economist')">The Economist</li>
+             <li class="mdl-menu__item" (click)="fetchNewsFromSource('the-wall-street-journal')">The Wall Street Journal </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('wirtschafts-woche')">Wirtschafts Woche</li>
         </ul>
         
      <masonry>

@@ -50,10 +50,25 @@
             <i class="material-icons share">more_vert</i>
         </button>
         <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="adbcd-menu-lower-left">
-            <li class="mdl-menu__item" (click)="adbcd('Hollywood')">Hollywood</li>
-            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" (click)="adbcd('Bollywood')"> Bollywood</li>
-            <li class="mdl-menu__item" (click)="adbcd('Kollywood')">Kollywood</li>
-            <li class="mdl-menu__item" (click)="adbcd('Mollywood')">Mollywood</li>
+         <li class="mdl-menu__item" (click)="fetchNewsFromSource('cnn')">CNN</li>
+         <li class="mdl-menu__item" (click)="fetchNewsFromSource('bbc-news')">BBC News</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('associated-press')">Associated Press</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('usa-today')">USA Today</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('time')">Time</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('the-washington-post')">The Washington Post </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('the-times-of-india')">The Times of India</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('fthe-telegraph')">The Telegraph</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('The New York Times')">the-new-york-times</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('the-huffington-post')">The Huffington Post </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('spiegel-online')">Spiegel Online </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('sky-news')">Sky News</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('reuters')">Reuters</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('reddit-r-all')">Reddit /r/all  </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('new-york-magazine')">New York Magazine </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('mirror')">Mirror</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('metro')">Metro </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('independent')">Independent </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('focus')">Focus </li>
         </ul>
         
      <masonry>

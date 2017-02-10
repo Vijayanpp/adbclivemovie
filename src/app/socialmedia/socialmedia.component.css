@@ -1,6 +1,6 @@
 body {background-color:#333;} 
 #redessociales {
-  width: 54px;
+  width: 30px;
   height: 54px;
   border-radius: 75px;
   border: 5px solid #fff;
@@ -35,16 +35,16 @@ body {background-color:#333;}
 }
 #redessociales:hover .smedia:nth-child(1) {
   position: absolute;
-  left:40px;
+  left:20px;
 }
 
 #redessociales:hover .smedia:nth-child(2) {
   position: absolute;
-  left:85px;
+  left:65px;
 }
 #redessociales:hover .smedia:nth-child(3) {
   position: absolute;
-  left:125px;
+  left:110px;
 }
 #redessociales:hover .smedia:nth-child(4) {
   position: absolute;
@@ -80,4 +80,11 @@ body {background-color:#333;}
 }
 .smedia:hover {
     background-position: 0 -46px;
+}
+
+span.source i
+{
+  color:#000;;
+  font-weight: bold;
+  font-size:1em;
 }

@@ -50,10 +50,8 @@
             <i class="material-icons share">more_vert</i>
         </button>
         <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="adbcd-menu-lower-left">
-            <li class="mdl-menu__item" (click)="adbcd('Hollywood')">Hollywood</li>
-            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" (click)="adbcd('Bollywood')"> Bollywood</li>
-            <li class="mdl-menu__item" (click)="adbcd('Kollywood')">Kollywood</li>
-            <li class="mdl-menu__item" (click)="adbcd('Mollywood')">Mollywood</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('mtv-news')">MTV News</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('mtv-news-uk')">MTV News</li>
         </ul>
         
      <masonry>

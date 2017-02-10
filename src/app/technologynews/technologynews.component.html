@@ -50,10 +50,13 @@
             <i class="material-icons share">more_vert</i>
         </button>
         <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="adbcd-menu-lower-left">
-            <li class="mdl-menu__item" (click)="adbcd('Hollywood')">Hollywood</li>
-            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" (click)="adbcd('Bollywood')"> Bollywood</li>
-            <li class="mdl-menu__item" (click)="adbcd('Kollywood')">Kollywood</li>
-            <li class="mdl-menu__item" (click)="adbcd('Mollywood')">Mollywood</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('engadget')">Engadget </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('gruenderszene')">Gruenderszene</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('recode')">Recode </li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('t3n')">T3n</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('techcrunch')">TechCrunch</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('techradar')">TechRadar</li>
+            <li class="mdl-menu__item" (click)="fetchNewsFromSource('wired-de')">Wired.de</li>           
         </ul>
         
      <masonry>
