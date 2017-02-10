@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var window:any;
 
 @Component({
   selector: 'app-termsandconditions',
@@ -11,5 +12,8 @@ export class TermsandconditionsComponent implements OnInit {
 
   ngOnInit() {
   }
+  ngAfterViewInit() {
+    window.componentHandler.upgradeAllRegistered();
+}
 
 }

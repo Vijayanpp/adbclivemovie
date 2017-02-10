@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FetchdataService } from '../../Provider/fetchdata.service';
 import { InfiniteScroll } from 'angular2-infinite-scroll';
-
+declare var window:any;
 
 @Component({
   selector: 'app-sportscomponent',
@@ -32,5 +32,8 @@ export class SportscomponentComponent implements OnInit {
     // add another 20 items
    
   }
+  ngAfterViewInit() {
+    window.componentHandler.upgradeAllRegistered();
+}
 
 }

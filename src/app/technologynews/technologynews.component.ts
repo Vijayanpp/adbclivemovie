@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FetchdataService } from '../../Provider/fetchdata.service';
 import { InfiniteScroll } from 'angular2-infinite-scroll';
+declare var window:any;
 
 @Component({
   selector: 'app-technologynews',
@@ -24,6 +25,10 @@ export class TechnologynewsComponent implements OnInit {
    	
     })
    }
+
+   ngAfterViewInit() {
+    window.componentHandler.upgradeAllRegistered();
+}
 
  
 }
