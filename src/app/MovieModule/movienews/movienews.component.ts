@@ -3,8 +3,6 @@ import { SharedService} from '../../../Provider/sharedservice.service';
 import { ActivatedRoute,Router } from '@angular/router';
 import * as Firebase from 'firebase';
 
-
-
 @Component({
   selector: 'app-movienews',
   templateUrl: './movienews.component.html',
@@ -13,16 +11,12 @@ import * as Firebase from 'firebase';
 export class MovienewsComponent implements OnInit {
 
  public signin:boolean;
-public musicvideos=[];
+public movienews=[];
   constructor(private sharedService:SharedService,private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-  	  //   firebase.database().ref('users/administrator').set({
-  //   username:'adbcd',
-  //   email:'adbcdstaff@gmail.com'    
-  // });
+  	 
    this.StartDatabaseQueries(this.sharedService.sharedvalue.category);
-  
   	
   }
   ngDoCheck()
@@ -40,8 +34,7 @@ checkAuthState()
  
     self.StartDatabaseQueries(this.sharedService.sharedvalue.category);
 
-  } else {
-    
+  } else {   
    
 
   }
@@ -56,26 +49,26 @@ checkAuthState()
   // var myUserId = firebase.auth().currentUser.uid;
   var self=this;
   this.sharedService.sharedvalue.category=category;
-  self.musicvideos=[];
+  self.movienews=[];
   
-  var recentPostsRef = firebase.database().ref('posts/Music/'+category).limitToLast(100);
+  var recentPostsRef = firebase.database().ref('posts/News/dev').limitToLast(100);
  var fetchPosts = function(postsRef) {
  postsRef.on('child_added', function(data) {
 
  var obj=data.val();
  obj.id=data.key; 
- self.musicvideos.push(obj);
+ self.movienews.push(obj);
      
     });
     postsRef.on('child_changed', function(data) {	
   var object=data.val();
   object.id=data.key;
    
-  var array= self.musicvideos.filter((obj,index)=>
+  var array= self.movienews.filter((obj,index)=>
   {
       if(obj.id==data.key)
         {
-          self.musicvideos.splice(index,1,object);
+          self.movienews.splice(index,1,object);
         }
   })
 

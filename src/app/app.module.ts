@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 /*Routing*/
 import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './app.routes';
-
 import {TmdbModule} from './TMDB';
 
 /*Services*/
@@ -14,6 +13,7 @@ import {FetchdataService } from '../Provider/fetchdata.service'
 import { MasonryModule } from 'angular2-masonry';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { SharedService} from '../Provider/sharedservice.service'
+import { DialogueComponent } from './dialogue/dialogue.component';
 /*Component*/
 import { AppComponent } from './app.component';
 import { NewsComponent } from './news/news.component';
@@ -38,6 +38,10 @@ import { TermsandconditionsComponent } from './termsandconditions/termsandcondit
 import { SocialmediaComponent } from './socialmedia/socialmedia.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { Newscard2Component } from './newscard2/newscard2.component';
+import { AddpostsampleComponent } from './addpostsample/addpostsample.component';
+import { MovienewscardComponent } from './MovieModule/movienewscard/movienewscard.component';
+import { MovieinnerpageComponent } from './MovieModule/movieinnerpage/movieinnerpage.component';
+import { MusicvideoinnerComponent } from './MovieModule/musicvideoinner/musicvideoinner.component';
 
 
 
@@ -65,11 +69,17 @@ import { Newscard2Component } from './newscard2/newscard2.component';
     TermsandconditionsComponent,
     SocialmediaComponent,
     CountdownComponent,
-    Newscard2Component    
+    Newscard2Component,
+    AddpostsampleComponent,
+    MovienewscardComponent,
+    MovieinnerpageComponent,
+    DialogueComponent,
+    MusicvideoinnerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     MasonryModule,
     RouterModule.forRoot(appRoutes),

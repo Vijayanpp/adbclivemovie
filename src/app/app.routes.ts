@@ -19,6 +19,7 @@ import { ActorComponent } from './TMDB/actor/actor.component';
 import { PopularmoviesComponent } from './TMDB/popularmovies/popularmovies.component';
 import { LoginComponent } from './login/login.component';
 
+
 /*Movie*/
 
 import { MusicvideosComponent } from './MovieModule/musicvideos/musicvideos.component';
@@ -29,11 +30,15 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
+import { AddpostsampleComponent } from './addpostsample/addpostsample.component';
+import { MovieinnerpageComponent } from './MovieModule/movieinnerpage/movieinnerpage.component';
+import { MusicvideoinnerComponent } from './MovieModule/musicvideoinner/musicvideoinner.component';
 
 
 
 export const appRoutes: Routes = [
         {path:'',component:NewsComponent},
+        {path:'News',component:NewsComponent},
         {path:'general',component:NewsComponent},
         {path:'Entertainment',component:EntertainmentnewsComponent},
         {path:'Sports',component:SportscomponentComponent},
@@ -46,13 +51,17 @@ export const appRoutes: Routes = [
         {path:'Signin',component:LoginComponent},
         {path: 'Movie/:id', component: MovieComponent},
         {path: 'Musicvideos', component:MusicvideosComponent},
+        {path: 'Musicvideos/:id', component:MusicvideoinnerComponent},
         {path:'Reviews',component:ReviewsComponent},
         {path:'Trailers',component:TrailersComponent},
         {path:'Movienews',component:MovienewsComponent},
         {path:'About',component:AboutComponent},
         {path:'Contact',component:ContactComponent},
         {path:'Privacypolicy',component:PrivacypolicyComponent },
-        {path:'Termsandconditions',component:TermsandconditionsComponent  }
+        {path:'Termsandconditions',component:TermsandconditionsComponent  },
+        {path:'addmoviedata',component:AddpostsampleComponent},
+        {path:'Movienews/:id',component:MovieinnerpageComponent}
+
 
     
     
