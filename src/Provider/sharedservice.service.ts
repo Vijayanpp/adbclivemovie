@@ -27,10 +27,15 @@ export class SharedService {
    
   
   let newcount=parseInt(count); 
-  let adbcd=post.ratingsByUser[uid]['rating'];  
+  let adbcd=post.ratingsByUser[uid]['rating'];
+  console.log("adbcd="+adbcd)
   let rating=(post.totalRating-adbcd+newRating)/newcount;
+  console.log("totalrating="+post.totalRating)
+  console.log((post.totalRating-adbcd+newRating))
+  console.log(rating);
   post.rating=rating.toFixed(2); 
    post.ratingsByUser[uid]['rating']=newRating;
+   post.totalRating=post.totalRating-adbcd+newRating;
       }
       else
       {        

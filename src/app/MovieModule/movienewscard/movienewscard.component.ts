@@ -2,6 +2,8 @@ import { Component, OnInit,Input } from '@angular/core';
 import { SharedService} from '../../../Provider/sharedservice.service';
 import { ActivatedRoute,Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'adbcd-movienewscard',
   templateUrl: './movienewscard.component.html',
@@ -34,6 +36,9 @@ like(id)
      this.router.navigate(['Signin']);
    }
 }
+
+
+
 
   
 }

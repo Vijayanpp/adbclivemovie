@@ -4,6 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SharedService} from '../../../Provider/sharedservice.service';
 import * as Firebase from 'firebase';
 declare var FB;
+declare var window:any;
 @Component({
   selector: 'app-musicvideoinner',
   templateUrl: './musicvideoinner.component.html',
@@ -94,6 +95,11 @@ shareOnFB()
   }, function(response){
     console.log(response.error_message)
   });
+}
+
+
+ ngAfterViewInit() {
+    window.componentHandler.upgradeAllRegistered();
 }
 
 }

@@ -8,18 +8,21 @@
                   </a>                  
                </div>
                <div class="mdl-card__actions mdl-card--border padding">
-                  <div class="material-icons mdl-badge mdl-badge--overlap ion" >favorite_border 
+                  <div class="material-icons mdl-badge mdl-badge--overlap ion" *ngIf="movie.stars" [ngClass]="{'red': movie.stars[movie.uid] }" >favorite_border 
+               </div>
+
+               <div class="material-icons mdl-badge mdl-badge--overlap ion" *ngIf="!movie.stars">favorite_border 
                </div>
                <span>{{movie.starCount}}</span>
                <!--<div class="material-icons mdl-badge mdl-badge--overlap ion">comment </div>
-               <span>9</span>
+               <span>9</span>-->    
 
                <div class="material-icons mdl-badge mdl-badge--overlap ion">star</div>
-               <span>8.3</span>-->               
+               <span>{{movie.rating}}</span>           
             </div>
             <div class="mdl-card__menu">
                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
                <i class="material-icons">share</i>
-               </button>
+               </button>               
             </div>
          </div>

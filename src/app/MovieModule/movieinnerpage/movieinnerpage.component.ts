@@ -4,6 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SharedService} from '../../../Provider/sharedservice.service'
 import * as Firebase from 'firebase';
 declare var FB;
+declare var window:any;
 
 
 @Component({
@@ -25,7 +26,7 @@ export class MovieinnerpageComponent implements OnInit {
   }
 
   ngOnInit() {
-     
+    this.sharedService.sharedvalue.category="Hollywood";
   	this.router.params.subscribe((params) => {
      
       const id = params['id'];
@@ -71,7 +72,8 @@ Rate(count,currentRating,newRating,id)
 {
     
   var uid = firebase.auth().currentUser.uid;
-  var recentPostsRef = firebase.database().ref('posts/Music/'+this.sharedService.sharedvalue.category+'/'+id);
+  var recentPostsRef = firebase.database().ref('posts/News/dev/'+id);
+   var recentPostsRef2 = firebase.database().ref('posts/News/'+this.sharedService.sharedvalue.category+'/'+id);
   this.sharedService.RatethePost(recentPostsRef,count,currentRating,newRating,uid); 
 }
 closeShare()
@@ -96,6 +98,9 @@ shareOnFB()
   });
 }
 
+ ngAfterViewInit() {
+    window.componentHandler.upgradeAllRegistered();
+}
   
 
 }
