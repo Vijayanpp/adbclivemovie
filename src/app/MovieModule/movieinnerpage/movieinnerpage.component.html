@@ -1,4 +1,4 @@
-<div class='sidebar mdl-cell mdl-cell--2-col'>
+<!-- <div class='sidebar mdl-cell mdl-cell--2-col'>
    <div class='img-content' *ngIf="movienews">
       <img src="{{movienews.imagepath}}"/>
    </div>
@@ -7,11 +7,17 @@
          <span class='number' >{{movienews.rating}}</span>
       </div>
    </div>
-</div>
+</div> -->
 
 <div class="mdl-grid portfolio-max-width" *ngIf="movienews">
+
   
    <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-content">
+    <div class='review' *ngIf="movienews">
+      <div class='circle'>
+         <span class='number' >{{movienews.rating}}</span>
+      </div>
+   </div>
        <img src="{{movienews.imagepath}}"/>
    </div>
 </div>

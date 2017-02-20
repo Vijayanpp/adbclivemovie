@@ -5,3 +5,21 @@
     left: 16px!important;
     top: 16px;
 }
+
+@media(max-width: 768px)
+{
+	.menu
+	{
+		display: none;
+	}
+	.mdl-list__item
+	{
+		font-size:14px;
+	}
+}
+
+.mdl-menu__outline,.mdl-menu
+{
+	min-width: 200px!important;
+
+}
