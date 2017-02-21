@@ -26,22 +26,22 @@
   
   <div class="mdl-card__menu">
     
-        <button data-toggle="modal" data-target="#share" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <button data-toggle="modal" data-target="#share" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds">
       <i class="material-icons" >share</i>
       </button>
 
       
      
-         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored " *ngIf="movienews.stars" [ngClass]="{'red': movienews.stars[movienews.uid] }"   (click)="like(movienews.id)" >
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="movienews.stars" [ngClass]="{'red': movienews.stars[movienews.uid] }"   (click)="like(movienews.id)" >
          <i class="material-icons"  >favorite_border</i>
          </button>
 
-         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored " *ngIf="!movienews.stars"    (click)="like(movienews.id)" >
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="!movienews.stars"    (click)="like(movienews.id)" >
          <i class="material-icons"  >favorite_border</i>
          </button>
 
          
-         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" data-toggle="modal" data-target="#rate" (click)="rateThisPost()">
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds" data-toggle="modal" data-target="#rate" (click)="rateThisPost()">
          <i class="material-icons" >star</i>
          </button>
          <!--<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">

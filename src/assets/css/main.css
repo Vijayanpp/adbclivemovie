@@ -536,10 +536,19 @@ a img{
     display: none;
   }
 }
-.mdl-button--fab.mdl-button--colored {
+.mdl-button--fab.mdl-button--coloreds {
  /*   background: rgb(119, 193, 89)!important;*/
-    background: rgb(255, 255, 255)!important;!important;
+    background: rgb(255, 255, 255)!important;
     color: rgb(41, 40, 40);
+    width: 60px;
+    height: 60px;
+    margin-top: 10px;
+}
+
+.mdl-button--fab.mdl-button--colored {
+    background: rgb(119, 193, 89)!important;
+    /*background: rgb(255, 255, 255)!important;*/
+    color: rgb(255, 255, 255);
     width: 60px;
     height: 60px;
     margin-top: 10px;
