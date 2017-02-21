@@ -220,6 +220,7 @@ else
 }
 submitPost(model) {
     var posttype=model.value.posttype;
+    console.log('hi'+posttype);
     var postindustry=model.value.postindustry;
     var title =model.value.title;
     var img=model.value.imagepath;

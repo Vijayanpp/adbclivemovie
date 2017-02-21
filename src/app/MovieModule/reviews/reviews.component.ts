@@ -12,16 +12,12 @@ import * as Firebase from 'firebase';
 export class ReviewsComponent implements OnInit {
 
   public signin:boolean;
-public musicvideos=[];
+public filmreviews=[];
   constructor(private sharedService:SharedService,private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-  	  //   firebase.database().ref('users/administrator').set({
-  //   username:'adbcd',
-  //   email:'adbcdstaff@gmail.com'    
-  // });
+  	 
    this.StartDatabaseQueries(this.sharedService.sharedvalue.category);
-  
   	
   }
   ngDoCheck()
@@ -39,8 +35,7 @@ checkAuthState()
  
     self.StartDatabaseQueries(this.sharedService.sharedvalue.category);
 
-  } else {
-    
+  } else {   
    
 
   }
@@ -55,26 +50,26 @@ checkAuthState()
   // var myUserId = firebase.auth().currentUser.uid;
   var self=this;
   this.sharedService.sharedvalue.category=category;
-  self.musicvideos=[];
+  self.filmreviews=[];
   
-  var recentPostsRef = firebase.database().ref('posts/Music/'+category).limitToLast(100);
+  var recentPostsRef = firebase.database().ref('posts/Review/dev').limitToLast(100);
  var fetchPosts = function(postsRef) {
  postsRef.on('child_added', function(data) {
 
  var obj=data.val();
  obj.id=data.key; 
- self.musicvideos.push(obj);
+ self.filmreviews.push(obj);
      
     });
     postsRef.on('child_changed', function(data) {	
   var object=data.val();
   object.id=data.key;
    
-  var array= self.musicvideos.filter((obj,index)=>
+  var array= self.filmreviews.filter((obj,index)=>
   {
       if(obj.id==data.key)
         {
-          self.musicvideos.splice(index,1,object);
+          self.filmreviews.splice(index,1,object);
         }
   })
 
@@ -106,4 +101,5 @@ adbcd(category:string)
 this.StartDatabaseQueries(category);
 
 }
+
 }

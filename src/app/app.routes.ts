@@ -33,7 +33,8 @@ import { TermsandconditionsComponent } from './termsandconditions/termsandcondit
 import { AddpostsampleComponent } from './addpostsample/addpostsample.component';
 import { MovieinnerpageComponent } from './MovieModule/movieinnerpage/movieinnerpage.component';
 import { MusicvideoinnerComponent } from './MovieModule/musicvideoinner/musicvideoinner.component';
-
+import { TrailerinnerpageComponent } from './MovieModule/trailerinnerpage/trailerinnerpage.component';
+import { ReviewinnerpageComponent } from './MovieModule/reviewinnerpage/reviewinnerpage.component';
 
 
 export const appRoutes: Routes = [
@@ -60,9 +61,8 @@ export const appRoutes: Routes = [
         {path:'Privacypolicy',component:PrivacypolicyComponent },
         {path:'Termsandconditions',component:TermsandconditionsComponent  },
         {path:'addmoviedata',component:AddpostsampleComponent},
-        {path:'Movienews/:id',component:MovieinnerpageComponent}
-
-
-    
+        {path:'Movienews/:id',component:MovieinnerpageComponent},
+        {path:'Trailers/:id',component:TrailerinnerpageComponent},
+         {path:'Reviews/:id',component:ReviewinnerpageComponent}    
     
 ];

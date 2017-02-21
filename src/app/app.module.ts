@@ -42,6 +42,8 @@ import { AddpostsampleComponent } from './addpostsample/addpostsample.component'
 import { MovienewscardComponent } from './MovieModule/movienewscard/movienewscard.component';
 import { MovieinnerpageComponent } from './MovieModule/movieinnerpage/movieinnerpage.component';
 import { MusicvideoinnerComponent } from './MovieModule/musicvideoinner/musicvideoinner.component';
+import { TrailerinnerpageComponent } from './MovieModule/trailerinnerpage/trailerinnerpage.component';
+import { ReviewinnerpageComponent } from './MovieModule/reviewinnerpage/reviewinnerpage.component';
 
 
 
@@ -74,7 +76,9 @@ import { MusicvideoinnerComponent } from './MovieModule/musicvideoinner/musicvid
     MovienewscardComponent,
     MovieinnerpageComponent,
     DialogueComponent,
-    MusicvideoinnerComponent
+    MusicvideoinnerComponent,
+    TrailerinnerpageComponent,
+    ReviewinnerpageComponent
   ],
   imports: [
     BrowserModule,
