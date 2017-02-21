@@ -158,14 +158,14 @@ h1,h2,p{
 .number
 {
   position: relative;
-   top: 40px;
+   top: 15px;
 }
 .review
 {
   width:125px;
   height:125px;
   background:#fff;
-  padding:50px;
+  padding:13px;
   border-radius:50%;
   -webkit-border-radius:50%;
   -moz-border-radius:50%;
@@ -177,6 +177,9 @@ h1,h2,p{
   -ms-transition:all 0.5s;
   -o-transition:all 0.5s;
   cursor: pointer;
+  position: relative!important;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 p
@@ -209,6 +212,7 @@ p
   -moz-transition:all 0.5s;
   -ms-transition:all 0.5s;
   -o-transition:all 0.5s;
+  
 }
 
 
