@@ -18,7 +18,7 @@
          <span class='number' >{{movienews.rating}}</span>
       </div>
    </div>
-       <img src="{{movienews.imagepath}}"/>
+      <!--  <img src="{{movienews.imagepath}}"/> -->
    </div>
 </div>
 <div class="md1-grid portfolio-max-width" *ngIf="movienews" >
@@ -26,7 +26,7 @@
   
   <div class="mdl-card__menu">
     
-        <button (click)="shareThisPost()" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <button data-toggle="modal" data-target="#share" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
       <i class="material-icons" >share</i>
       </button>
 
@@ -41,7 +41,7 @@
          </button>
 
          
-         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="rateThisPost()">
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" data-toggle="modal" data-target="#rate" (click)="rateThisPost()">
          <i class="material-icons" >star</i>
          </button>
          <!--<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
@@ -59,10 +59,22 @@
       <div [innerHTML]="movienews.overview" ></div>
    </div>
 
+
+
+<p class="sharethisShare">Share this Article<b>:</b></p>
+<div id="buttonGroupShare">
+  <button id='fbShare' style="background:#325C94;"  (click)="shareFb('http://www.google.com')"><div id="fbCountShare">0</div><a>Facebook</a></button>
+  <button id='twitterShare' style="background:#00ABDC; "  (click)="shareFb('http://www.google.com')"><a>Twitter</a></button>
+  <button id='gplusShare' style="background:#EA3032"  (click)="shareFb('http://www.google.com')"><div id="gooCountShare">0</div><a>Google+</a></button>
+  <button id='liShare' style="background:#0073B2;"  (click)="shareFb('http://www.google.com')"><div id="liCountShare">0</div><a>LinkedIn</a></button>
+  <button id='piShare' style="background:#CB2027"  (click)="shareFb('http://www.google.com')"><div id="piCountShare">0</div><a href="javascript:void((function()%7Bvar%20e=document.createElement(&apos;script&apos;);e.setAttribute(&apos;src&apos;,&apos;http://assets.pinterest.com/js/pinmarklet.js?r=&apos;+Math.random()*99999999);document.body.appendChild(e)%7D)());">Pinterest</a></button>
 </div>
 
 
-<app-dialogue *ngIf='share&&movienews'>
+</div>
+
+
+<!-- <app-dialogue *ngIf='share&&movienews'>
   <div class="modal-header">
         <h5 class="adbcd-modal-title" id="exampleModalLiveLabel">Share On</h5>
         <button type="button" class="close" (click)="closeShare()" data-dismiss="modal" aria-label="Close">
@@ -78,9 +90,120 @@
         
       </div>
 
-</app-dialogue>
+</app-dialogue> -->
 
-<app-dialogue *ngIf='rate&&movienews'>
+<div id="share" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">share</h4>
+      </div>
+      <div class="modal-body">
+   <div class="social-icons-services">
+    <div class="social-figure">
+        <div class="facebook">
+            <h2 class="entypo-facebook"></h2>
+        </div>
+        <div class="social-hover">
+            <h2 class="entypo-facebook"></h2>
+        </div>
+    </div>
+    <div class="social-figure">
+        <div class="twitter">
+            <h2 class="entypo-twitter"></h2>
+        </div>
+        <div class="social-hover">
+            <h2 class="entypo-twitter"></h2>
+        </div>
+    </div>
+    <div class="social-figure">
+        <div class="gplus">
+            <h2 class="entypo-gplus"></h2>
+        </div>
+        <div class="social-hover">
+            <h2 class="entypo-gplus"></h2>
+        </div>
+    </div>
+    <div class="social-figure">
+        <div class="pinterest">
+            <h2 class="entypo-pinterest"></h2>
+        </div>
+        <div class="social-hover">
+            <h2 class="entypo-pinterest"></h2>
+        </div>
+    </div>
+    <div class="social-figure">
+        <div class="vimeo">
+            <h2 class="entypo-vimeo"></h2>
+        </div>
+        <div class="social-hover">
+            <h2 class="entypo-vimeo"></h2>
+        </div>
+    </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="rate" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">share</h4>
+      </div>
+      <div class="modal-body">
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(movienews.ratingCount,movienews.rating,1,movienews.id)">
+  1
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(movienews.ratingCount,movienews.rating,2,movienews.id)">
+  2
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(movienews.ratingCount,movienews.rating,3,movienews.id)">
+  3
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(movienews.ratingCount,movienews.rating,4,movienews.id)">
+  4
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(movienews.ratingCount,movienews.rating,5,movienews.id)">
+  5
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(movienews.ratingCount,movienews.rating,6,movienews.id)">
+  6
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(movienews.ratingCount,movienews.rating,7,movienews.id)">
+  7
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(movienews.ratingCount,movienews.rating,8,movienews.id)">
+  8
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(movienews.ratingCount,movienews.rating,9,movienews.id)">
+  9
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"  (click)="Rate(movienews.ratingCount,movienews.rating,10,movienews.id)">
+  10
+  </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- <app-dialogue *ngIf='rate&&movienews'>
   <div class="modal-header">
         <h5 class="adbcd-modal-title" id="exampleModalLiveLabel">Rate this</h5>
         <button type="button" class="close" (click)="closeRate()" data-dismiss="modal" aria-label="Close">
@@ -125,5 +248,68 @@
         
       </div>
 
-</app-dialogue>
+</app-dialogue> -->
    
+
+  <!--  <script type="text/javascript">
+
+
+     
+     function setCount(a, b) {
+  a.text(b)
+}
+var fbShare = document.getElementById("fbShare"),
+  gplusShare = document.getElementById("gplusShare"),
+  twitterShare = document.getElementById("twitterShare"),
+  liShare = document.getElementById("liShare"),
+  currentURL = "http://codepen.io/",
+  currentTitle = document.title,
+  windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
+fbShare.onclick = function() {
+  return window.open("https://www.facebook.com/sharer.php?u=" + currentURL, "", windowOpenSettings), !1
+}, gplusShare.onclick = function() {
+  return window.open("https://plus.google.com/share?url=" + currentURL, "", windowOpenSettings), !1
+}, twitterShare.onclick = function() {
+  return window.open("https://twitter.com/share?url=" + currentURL + "&text=" + currentTitle, "", windowOpenSettings), !1
+}, liShare.onclick = function() {
+  return window.open("http://www.linkedin.com/shareArticle?mini=true&url=" + currentURL + "&title=" + currentTitle + "&source=", "", windowOpenSettings), !1
+}, fbShare.getElementsByTagName("a")[0].setAttribute("href", "http://www.facebook.com/sharer.php?u=" + currentURL), gplusShare.getElementsByTagName("a")[0].setAttribute("href", "https://plus.google.com/share?url=" + currentURL), twitterShare.getElementsByTagName("a")[0].setAttribute("href", "https://twitter.com/share?url=" + currentURL + "&text=" + currentTitle), liShare.getElementsByTagName("a")[0].setAttribute("href", "http://www.linkedin.com/shareArticle?mini=true&url=" + currentURL + "&title=" + currentTitle + "&source="), $.noConflict();
+jQuery.getJSON("http://graph.facebook.com/?id=" + currentURL, function(a) {
+  jQuery("#fbCountShare").text(a.shares)
+});
+liShare = function(data) {
+  jQuery("#liCountShare").text(data.count)
+};
+jQuery.getScript("https://www.linkedin.com/countserv/count/share?url=" + currentURL + "&format=jsonp&callback=liShare");
+jQuery.getJSON("http://api.pinterest.com/v1/urls/count.json?url=" + currentURL + "&callback=?", function(a) {
+  var b = a.count;
+  jQuery("#piCountShare").text(b)
+});
+var data = {
+  method: "pos.plusones.get",
+  id: currentURL,
+  params: {
+    nolog: !0,
+    id: currentURL,
+    source: "widget",
+    userId: "@viewer",
+    groupId: "@self"
+  },
+  jsonrpc: "2.0",
+  key: "p",
+  apiVersion: "v1"
+};
+jQuery.ajax({
+  type: "POST",
+  url: "https://clients6.google.com/rpc",
+  processData: !0,
+  contentType: "application/json",
+  data: JSON.stringify(data),
+  success: function(a) {
+    setCount(jQuery("#gooCountShare"), a.result.metadata.globalCounts.count)
+  }
+});
+
+
+   </script>
+ -->

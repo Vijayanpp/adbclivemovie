@@ -101,6 +101,44 @@ shareOnFB()
  ngAfterViewInit() {
     window.componentHandler.upgradeAllRegistered();
 }
+
+
+shareFb(url)
+{
+ 
+  var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
+  return window.open("https://www.facebook.com/sharer.php?u=" + url, "", windowOpenSettings), !1
+}
   
+  shareGplus(currentURL)
+{
+  
+  var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
+  return window.open("https://plus.google.com/share?url=" + currentURL, "", windowOpenSettings), !1
+}
+
+
+  shareTwitter(currentURL,currentTitle)
+{
+  
+  var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
+  return window.open("https://twitter.com/share?url=" + currentURL + "&text=" + currentTitle, "", windowOpenSettings), !1
+}
+
+ shareLinkedin(currentURL,currentTitle)
+{
+  
+  var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
+return window.open("http://www.linkedin.com/shareArticle?mini=true&url=" + currentURL + "&title=" + currentTitle + "&source=", "", windowOpenSettings), !1
+}
+
+sharePin(currentURL,currentTitle)
+{
+  
+  var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
+  return window.open("https://twitter.com/share?url=" + currentURL + "&text=" + currentTitle, "", windowOpenSettings), !1
+}
+
+
 
 }
