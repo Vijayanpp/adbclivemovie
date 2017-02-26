@@ -902,3 +902,19 @@ p
 .social-figure:hover .social-hover {
   top: 0;
 }
+
+.mdl-button--icon {
+    border-radius: 50%;
+    font-size: 24px;
+    height: 32px;
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 32px;
+    width: 32px;
+    padding: 10px;
+    overflow: hidden;
+    color: inherit;
+    line-height: normal;
+    background: #fffdfd;
+    /* border: 1px solid #77c159; */
+}

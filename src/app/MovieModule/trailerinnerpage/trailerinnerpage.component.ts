@@ -18,7 +18,7 @@ export class TrailerinnerpageComponent implements OnInit {
   public starsid;
   public share:boolean=false;
   public rate:boolean=false;
-
+  public userid;
   constructor(private router: ActivatedRoute, private sanitizer: DomSanitizer,private sharedService:SharedService,private routernav:Router) { 
 
 
@@ -26,6 +26,12 @@ export class TrailerinnerpageComponent implements OnInit {
 
   ngOnInit() {
     this.sharedService.sharedvalue.category="Hollywood";
+    if(firebase.auth().currentUser!=null)
+     {
+       this.userid=firebase.auth().currentUser.uid;
+       
+     }
+     console.log(this.userid+'kkk')
   	this.router.params.subscribe((params) => {
      
       const id = params['id'];
@@ -35,7 +41,12 @@ export class TrailerinnerpageComponent implements OnInit {
     adbcd_music.on("value", function(snapshot) {
     self.movietrailer=snapshot.val();
     self.movietrailer.id=snapshot.key;
-    self.movietrailer.views++;  
+    self.movietrailer.views++; 
+
+    if(self.movietrailer.trailers)
+    {
+     self.videourl=self.sanitizer.bypassSecurityTrustHtml(self.movietrailer.trailers[0]);
+    }  
     
      }, function (errorObject) {
    console.log("The read failed: " + errorObject.code);
@@ -67,13 +78,43 @@ rateThisPost()
 
   this.rate=true;
 }
+
+ addFavourite(movienews,id)
+  {
+   
+    if(firebase.auth().currentUser!=null)
+   {
+    
+     var newPostKey = firebase.database().ref().child('posts').push().key;
+     var updates = {};
+     var recentPostsRef = firebase.database().ref('posts/Trailer/dev/'+id);   
+     var uid = firebase.auth().currentUser.uid;
+     
+     firebase.database().ref().update(updates);     
+     updates['/Favourites/movietrailer/' +uid+'/'+newPostKey]=movienews; 
+     firebase.database().ref().update(updates);   
+     this.sharedService.favourite(uid,recentPostsRef); 
+   }
+   else
+   {
+     this.routernav.navigate(['Signin']);
+   }
+  }
+
+
 Rate(count,currentRating,newRating,id)
 {
-    
+  if(firebase.auth().currentUser!=null)
+   { 
   var uid = firebase.auth().currentUser.uid;
   var recentPostsRef = firebase.database().ref('posts/Trailer/dev/'+id);
    var recentPostsRef2 = firebase.database().ref('posts/Trailer/'+this.sharedService.sharedvalue.category+'/'+id);
   this.sharedService.RatethePost(recentPostsRef,count,currentRating,newRating,uid); 
+   }
+   else
+   {
+     this.routernav.navigate(['Signin']);
+   }
 }
 closeShare()
 {
@@ -102,41 +143,53 @@ shareOnFB()
 }
 
 
-shareFb(url)
+shareFb()
 {
- 
-  var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
-  return window.open("https://www.facebook.com/sharer.php?u=" + url, "", windowOpenSettings), !1
+    FB.ui({
+   app_id:'568461570013753',
+    method: 'share',
+    
+    display: 'popup',
+    href: 'http://www.adbcd.com',
+  }, function(response){
+    console.log(response.error_message)
+  });
+
 }
   
-  shareGplus(currentURL)
+  shareGplus()
 {
-  
+ 
+  var currentURL=window.location.href;  
   var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
   return window.open("https://plus.google.com/share?url=" + currentURL, "", windowOpenSettings), !1
 }
 
 
-  shareTwitter(currentURL,currentTitle)
+  shareTwitter(currentTitle)
 {
-  
+  var currentURL=window.location.href;
   var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
   return window.open("https://twitter.com/share?url=" + currentURL + "&text=" + currentTitle, "", windowOpenSettings), !1
 }
 
- shareLinkedin(currentURL,currentTitle)
+ shareLinkedin(currentTitle)
 {
-  
+  var currentURL=window.location.href;
   var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
-return window.open("http://www.linkedin.com/shareArticle?mini=true&url=" + currentURL + "&title=" + currentTitle + "&source=", "", windowOpenSettings), !1
+  return window.open("http://www.linkedin.com/shareArticle?mini=true&url=" + currentURL + "&title=" + currentTitle + "&source=", "", windowOpenSettings), !1
 }
 
-sharePin(currentURL,currentTitle)
+sharePin(currentTitle)
 {
-  
+  var currentURL=window.location.href;
   var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
   return window.open("https://twitter.com/share?url=" + currentURL + "&text=" + currentTitle, "", windowOpenSettings), !1
 }
 
+ngOnDestroy()
+{
+  this.movietrailer=[];
+}
 
 }

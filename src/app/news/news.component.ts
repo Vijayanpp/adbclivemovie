@@ -33,13 +33,7 @@ export class NewsComponent implements OnInit {
 
    this.mainnews=[];
    this.mainnews=this.mainnews.concat(news.articles);
-   for(let i=0;i<=this.mainnews.length;i++)
-   {
-  this.mainnews[i].source=news.source;   
-  var updates = {};
-  updates['News/'+this.mainnews[i].title] = postData;
-  firebase.database().ref().update(updates);
-    }})
+   })
    }
 
    ngAfterViewInit() {
@@ -50,5 +44,7 @@ ngOnDestroy()
   this.mainnews=[];
   // this.subscription.unsbscribe();
 }
+
+
 
 }

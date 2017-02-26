@@ -14,6 +14,7 @@ export class SharedService {
     postref.transaction(function(post)
     {
    post.views++;
+  
     })
   }
   RatethePost(postRef,count,currentRating,newRating,uid)
@@ -28,11 +29,9 @@ export class SharedService {
   
   let newcount=parseInt(count); 
   let adbcd=post.ratingsByUser[uid]['rating'];
-  console.log("adbcd="+adbcd)
+  
   let rating=(post.totalRating-adbcd+newRating)/newcount;
-  console.log("totalrating="+post.totalRating)
-  console.log((post.totalRating-adbcd+newRating))
-  console.log(rating);
+  
   post.rating=rating.toFixed(2); 
    post.ratingsByUser[uid]['rating']=newRating;
    post.totalRating=post.totalRating-adbcd+newRating;
@@ -64,6 +63,21 @@ export class SharedService {
       return post;
      })
      
+  }
+  favourite(uid,postRef)
+  {
+    console.log('kkk')
+    postRef.transaction(function(post) {
+    console.log(post);
+   if (!post.favourite) {
+          post.favourite = {};
+          console.log("kkk")
+        }
+        post.favourite[uid] = true;
+        console.log(post.favourite[uid])
+        return post;
+    })
+
   }
 
 LikethePost(postRef, uid) {

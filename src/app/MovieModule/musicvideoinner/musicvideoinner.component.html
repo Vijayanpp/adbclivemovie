@@ -1,41 +1,57 @@
-<div class='sidebar mdl-cell mdl-cell--2-col'>
-   <div class='img-content' *ngIf="musicvideos">
-      <img src="{{musicvideos.imagepath}}"/>
-   </div>
-   <div class='review' *ngIf="musicvideos">
-      <div class='circle'>
-         <span class='number' >{{musicvideos.rating}}</span>
-      </div>
-   </div>
-</div>
-
 <div class="mdl-grid portfolio-max-width" *ngIf="musicvideos">
+
   
    <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-content" [innerHTML]="videourl">
-      
+    
+        <!--<div  [innerHTML]="videourl"></div>-->
    </div>
 </div>
-<div class="md1-grid portfolio-max-width" *ngIf="musicvideos" >
-  
+<div class="md1-grid portfolio-max-width" *ngIf="musicvideos" >  
   
   <div class="mdl-card__menu">
     
-        <button (click)="shareThisPost()" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <button data-toggle="modal" data-target="#share" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds">
       <i class="material-icons" >share</i>
       </button>
-     
-         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored "   (click)="like(musicvideos.id)" >
+    
+     <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="!musicvideos.favourite"    (click)=" addFavourite(musicvideos,musicvideos.id)" >  
          <i class="material-icons"  >favorite_border</i>
          </button>
-         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="rateThisPost()">
-         <i class="material-icons" >star</i>
-         </button>
-         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-         <i class="material-icons">add</i>
+
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="musicvideos.favourite&&!musicvideos.favourite[userid]"    (click)=" addFavourite(musicvideos,musicvideos.id)" >  
+         <i class="material-icons"  >favorite_border</i>
          </button>
 
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="musicvideos.favourite&&musicvideos.favourite[userid]"  [ngClass]="{'red':musicvideos.favourite[userid] }">
+         <i class="material-icons"  >favorite_border</i>
+         </button>
+
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="musicvideos.stars" [ngClass]="{'red': musicvideos.stars[userid] }"   (click)="like(musicvideos.id)" >
+         <i class="material-icons"  >thumb_up</i>
+         </button>
+
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="!musicvideos.stars"    (click)="like(musicvideos.id)" >
+         <i class="material-icons"  >thumb_up</i>
+         </button>
+     
+      
+     
+         
+
+         
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds" data-toggle="modal" data-target="#rate" (click)="rateThisPost()">
+         <i class="material-icons" >star</i>
+         </button>
+         <!--<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+         <i class="material-icons">add</i>
+         </button>-->
+
          <div class='watch-view-count'>
-        
+         
+      <div class='circle' *ngIf="musicvideos">
+         <span class='number' >{{musicvideos.rating}}</span>
+      </div>
+  
          </div>
     
   </div>
@@ -45,36 +61,38 @@
       <div [innerHTML]="musicvideos.overview" ></div>
    </div>
 
+
+
+<p class="sharethisShare">Share this Article<b>:</b></p>
+<div id="buttonGroupShare" *ngIf="musicvideos">
+  <button id='fbShare' style="background:#325C94;"  (click)="shareFb()"><a>Facebook</a></button>
+ <button id='twitterShare' style="background:#00ABDC; "  (click)="shareTwitter(movienews.title)"><a>Twitter</a></button>
+  <button id='gplusShare' style="background:#EA3032"  (click)="shareGplus()"><a>Google+</a></button>
+  <button id='liShare' style="background:#0073B2;"  (click)="shareLinkedin(movienews.title)"><a>LinkedIn</a></button>
+  
+
+
 </div>
 
 
-<app-dialogue *ngIf='share&&musicvideos'>
-  <div class="modal-header">
-        <h5 class="adbcd-modal-title" id="exampleModalLiveLabel">Share On</h5>
-        <button type="button" class="close" (click)="closeShare()" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-  <div class="modal-body">
-      <a href="https://plus.google.com/share?url={URL}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="assets/images/google.png"  alt='google'/></a>
-      <img src="assets/images/facebook-2.png" (click)="shareOnFB()" alt='facebook'/>
-      <a class="twitter-share-button" href="https://twitter.com/intent/tweet"><img src="assets/images/twitter.png" alt='google'/></a></div>
-      <div class="modal-footer">
-        <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="closeShare()" data-dismiss="modal">Close</button>
-        
-      </div>
+</div>
 
-</app-dialogue>
 
-<app-dialogue *ngIf='rate&&musicvideos'>
-  <div class="modal-header">
-        <h5 class="adbcd-modal-title" id="exampleModalLiveLabel">Rate this</h5>
-        <button type="button" class="close" (click)="closeRate()" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
+
+
+
+
+<div id="rate" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">share</h4>
       </div>
-  <div class="modal-body">
-  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(musicvideos.ratingCount,musicvideos.rating,1,musicvideos.id)">
+      <div class="modal-body">
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(musicvideos.ratingCount,musicvideos.rating,1,musicvideos.id)">
   1
   </button>
   <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(musicvideos.ratingCount,musicvideos.rating,2,musicvideos.id)">
@@ -104,12 +122,11 @@
   <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"  (click)="Rate(musicvideos.ratingCount,musicvideos.rating,10,musicvideos.id)">
   10
   </button>
-  
       </div>
       <div class="modal-footer">
-        <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="closeRate()" data-dismiss="modal">Close</button>        
-        
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
+    </div>
 
-</app-dialogue>
-   
+  </div>
+</div>

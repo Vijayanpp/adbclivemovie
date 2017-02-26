@@ -13,5 +13,17 @@ export class NewscardComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+
+  addFavourite(news)
+  {
+     var newPostKey = firebase.database().ref().child('posts').push().key;
+     var updates = {};
+     news.favourite=true; 
+     var uid = firebase.auth().currentUser.uid;
+     firebase.database().ref().update(updates);     
+     updates['/Favourites/news' +uid+'/'+newPostKey]=news; 
+     firebase.database().ref().update(updates);     
+  }
 
 }

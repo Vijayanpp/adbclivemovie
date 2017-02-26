@@ -197,4 +197,8 @@ h1,h2,p{
 }
 
 
-
+.circle
+{
+  float:right!important;
+  margin:-78px auto!important;
+}

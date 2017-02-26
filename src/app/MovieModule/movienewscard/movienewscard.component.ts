@@ -11,7 +11,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 export class MovienewscardComponent implements OnInit {
 
-  
+  public userid;
 
   @Input()
  movie:Object;
@@ -19,7 +19,13 @@ export class MovienewscardComponent implements OnInit {
   constructor(private sharedService:SharedService,private router:Router) { }
 
   ngOnInit() {
+    if(firebase.auth().currentUser!=null)
+     {
+       this.userid=firebase.auth().currentUser.uid;
+     }
   }
+
+
 like(id)
 { 
     

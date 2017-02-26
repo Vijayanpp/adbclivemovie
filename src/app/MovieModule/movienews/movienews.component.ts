@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService} from '../../../Provider/sharedservice.service';
 import { ActivatedRoute,Router } from '@angular/router';
 import * as Firebase from 'firebase';
+declare var window:any;
 
 @Component({
   selector: 'app-movienews',
@@ -68,7 +69,18 @@ checkAuthState()
   {
       if(obj.id==data.key)
         {
-          self.movienews.splice(index,1,object);
+          
+          if(obj.starCount!=object.starCount)
+          {
+          self.movienews[index].starCount=object.starCount;
+          self.movienews[index].stars=object.stars;
+          }
+          if(obj.rating!=object.rating)
+          {
+          self.movienews[index].rating=object.rating;          
+          }
+
+
         }
   })
 
@@ -99,6 +111,10 @@ adbcd(category:string)
 {
 this.StartDatabaseQueries(category);
 
+}
+
+ngAfterViewInit() {
+    window.componentHandler.upgradeAllRegistered();
 }
 
 }

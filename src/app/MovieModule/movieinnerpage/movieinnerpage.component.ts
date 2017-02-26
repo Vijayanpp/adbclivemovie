@@ -20,6 +20,7 @@ export class MovieinnerpageComponent implements OnInit {
   public share:boolean=false;
   public rate:boolean=false;
 
+  public userid
   constructor(private router: ActivatedRoute, private sanitizer: DomSanitizer,private sharedService:SharedService,private routernav:Router) { 
 
 
@@ -27,21 +28,55 @@ export class MovieinnerpageComponent implements OnInit {
 
   ngOnInit() {
     this.sharedService.sharedvalue.category="Hollywood";
+    
+     if(firebase.auth().currentUser!=null)
+     {
+       this.userid=firebase.auth().currentUser.uid;
+       
+     }
+     
+
+
+      
+    
+
   	this.router.params.subscribe((params) => {
      
       const id = params['id'];
-      console.log(id)
+      
+      
       var self=this;
-      var adbcd_music=firebase.database().ref('posts/News/dev/').child(id);
-    adbcd_music.on("value", function(snapshot) {
+      var adbcd_movie=firebase.database().ref('posts/News/dev/').child(id);
+    adbcd_movie.on("value", function(snapshot) {
     self.movienews=snapshot.val();
     self.movienews.id=snapshot.key;
-    self.movienews.views++;  
-    
+       
      }, function (errorObject) {
    console.log("The read failed: " + errorObject.code);
    });})
 
+  }
+
+   addFavourite(movienews,id)
+  {
+   
+    if(firebase.auth().currentUser!=null)
+   {
+    
+     var newPostKey = firebase.database().ref().child('posts').push().key;
+     var updates = {};
+     var recentPostsRef = firebase.database().ref('posts/News/dev/'+id);   
+     var uid = firebase.auth().currentUser.uid;
+     
+     firebase.database().ref().update(updates);     
+     updates['/Favourites/movienews/' +uid+'/'+newPostKey]=movienews; 
+     firebase.database().ref().update(updates);   
+     this.sharedService.favourite(uid,recentPostsRef); 
+   }
+   else
+   {
+     this.routernav.navigate(['Signin']);
+   }
   }
  
 
@@ -56,7 +91,7 @@ export class MovieinnerpageComponent implements OnInit {
    }
    else
    {
-     this.routernav.navigate(['login']);
+     this.routernav.navigate(['Signin']);
    }
 }
 shareThisPost()
@@ -70,11 +105,17 @@ rateThisPost()
 }
 Rate(count,currentRating,newRating,id)
 {
-    
+  if(firebase.auth().currentUser!=null)
+   {  
   var uid = firebase.auth().currentUser.uid;
   var recentPostsRef = firebase.database().ref('posts/News/dev/'+id);
    var recentPostsRef2 = firebase.database().ref('posts/News/'+this.sharedService.sharedvalue.category+'/'+id);
-  this.sharedService.RatethePost(recentPostsRef,count,currentRating,newRating,uid); 
+  this.sharedService.RatethePost(recentPostsRef,count,currentRating,newRating,uid);
+   }
+   else
+   {
+     this.routernav.navigate(['Signin']);
+   }
 }
 closeShare()
 {
@@ -87,7 +128,17 @@ closeRate()
 shareOnFB()
   {
     console.log('sharex');
-      FB.ui({
+     
+}
+
+ ngAfterViewInit() {
+    window.componentHandler.upgradeAllRegistered();
+}
+
+
+shareFb()
+{
+    FB.ui({
    app_id:'568461570013753',
     method: 'share',
     
@@ -96,48 +147,44 @@ shareOnFB()
   }, function(response){
     console.log(response.error_message)
   });
+
 }
-
- ngAfterViewInit() {
-    window.componentHandler.upgradeAllRegistered();
-}
-
-
-shareFb(url)
+  
+  shareGplus()
 {
  
-  var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
-  return window.open("https://www.facebook.com/sharer.php?u=" + url, "", windowOpenSettings), !1
-}
-  
-  shareGplus(currentURL)
-{
-  
+  var currentURL=window.location.href;  
   var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
   return window.open("https://plus.google.com/share?url=" + currentURL, "", windowOpenSettings), !1
 }
 
 
-  shareTwitter(currentURL,currentTitle)
+  shareTwitter(currentTitle)
 {
-  
+  var currentURL=window.location.href;
   var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
   return window.open("https://twitter.com/share?url=" + currentURL + "&text=" + currentTitle, "", windowOpenSettings), !1
 }
 
- shareLinkedin(currentURL,currentTitle)
+ shareLinkedin(currentTitle)
 {
-  
+  var currentURL=window.location.href;
   var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
-return window.open("http://www.linkedin.com/shareArticle?mini=true&url=" + currentURL + "&title=" + currentTitle + "&source=", "", windowOpenSettings), !1
+  return window.open("http://www.linkedin.com/shareArticle?mini=true&url=" + currentURL + "&title=" + currentTitle + "&source=", "", windowOpenSettings), !1
 }
 
-sharePin(currentURL,currentTitle)
+sharePin(currentTitle)
 {
-  
+  var currentURL=window.location.href;
   var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
   return window.open("https://twitter.com/share?url=" + currentURL + "&text=" + currentTitle, "", windowOpenSettings), !1
 }
+
+ngOnDestroy()
+{
+  this.movienews=[];
+}
+
 
 
 

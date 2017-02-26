@@ -17,12 +17,19 @@ export class MusicvideoinnerComponent implements OnInit {
   public starsid;
   public share:boolean=false;
    public rate:boolean=false;
+     public userid
   constructor(private router: ActivatedRoute, private sanitizer: DomSanitizer,private sharedService:SharedService,private routernav:Router) {
   
    }
 
   ngOnInit() {
      
+     if(firebase.auth().currentUser!=null)
+     {
+       this.userid=firebase.auth().currentUser.uid;
+       
+     }
+
   	this.router.params.subscribe((params) => {
      
       const id = params['id'];
@@ -42,6 +49,28 @@ export class MusicvideoinnerComponent implements OnInit {
    console.log("The read failed: " + errorObject.code);
    });})
 
+  }
+
+   addFavourite(movienews,id)
+  {
+   
+    if(firebase.auth().currentUser!=null)
+   {
+    
+     var newPostKey = firebase.database().ref().child('posts').push().key;
+     var updates = {};
+     var recentPostsRef = firebase.database().ref('posts/Music/dev/'+id);   
+     var uid = firebase.auth().currentUser.uid;
+     
+     firebase.database().ref().update(updates);     
+     updates['/Favourites/musicvideos/' +uid+'/'+newPostKey]=movienews; 
+     firebase.database().ref().update(updates);   
+     this.sharedService.favourite(uid,recentPostsRef); 
+   }
+   else
+   {
+     this.routernav.navigate(['Signin']);
+   }
   }
  
 
@@ -70,23 +99,26 @@ rateThisPost()
 }
 Rate(count,currentRating,newRating,id)
 {
+  if(firebase.auth().currentUser!=null)
+   {  
     
   var uid = firebase.auth().currentUser.uid;
   var recentPostsRef = firebase.database().ref('posts/Music/'+this.sharedService.sharedvalue.category+'/'+id);
   this.sharedService.RatethePost(recentPostsRef,count,currentRating,newRating,uid); 
+   }
+    else
+   {
+     this.routernav.navigate(['Signin']);
+   }
 }
-closeShare()
+ ngAfterViewInit() {
+    window.componentHandler.upgradeAllRegistered();
+}
+
+
+shareFb()
 {
-  this.share=false;
-}
-closeRate()
-{
-  this.rate=false;
-}
-shareOnFB()
-  {
-    console.log('sharex');
-      FB.ui({
+    FB.ui({
    app_id:'568461570013753',
     method: 'share',
     
@@ -95,11 +127,42 @@ shareOnFB()
   }, function(response){
     console.log(response.error_message)
   });
+
+}
+  
+  shareGplus()
+{
+ 
+  var currentURL=window.location.href;  
+  var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
+  return window.open("https://plus.google.com/share?url=" + currentURL, "", windowOpenSettings), !1
 }
 
 
- ngAfterViewInit() {
-    window.componentHandler.upgradeAllRegistered();
+  shareTwitter(currentTitle)
+{
+  var currentURL=window.location.href;
+  var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
+  return window.open("https://twitter.com/share?url=" + currentURL + "&text=" + currentTitle, "", windowOpenSettings), !1
+}
+
+ shareLinkedin(currentTitle)
+{
+  var currentURL=window.location.href;
+  var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
+  return window.open("http://www.linkedin.com/shareArticle?mini=true&url=" + currentURL + "&title=" + currentTitle + "&source=", "", windowOpenSettings), !1
+}
+
+sharePin(currentTitle)
+{
+  var currentURL=window.location.href;
+  var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
+  return window.open("https://twitter.com/share?url=" + currentURL + "&text=" + currentTitle, "", windowOpenSettings), !1
+}
+
+ngOnDestroy()
+{
+  this.musicvideos=[];
 }
 
 }

@@ -60,8 +60,5 @@ export class AppComponent {
 });
   }
  
- kk()
- {
-   jQuery("#pp").css("display","none");
- }
+ 
 }

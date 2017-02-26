@@ -54,6 +54,7 @@ checkAuthState()
   StartDatabaseQueries(category) {
   // [START my_top_posts_query]
   // var myUserId = firebase.auth().currentUser.uid;
+  console.log('hi')
   var self=this;
   this.sharedService.sharedvalue.category=category;
   self.musicvideos=[];

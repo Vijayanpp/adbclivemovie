@@ -1,33 +1,42 @@
 <div class="mdl-grid portfolio-max-width" *ngIf="movietrailer">
 
   
-   <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-content">
-    <div class='review' *ngIf="movietrailer">
-      <div class='circle'>
-         <span class='number' >{{movietrailer.rating}}</span>
-      </div>
-   </div>
-        <img src="{{movietrailer.imagepath}}"/>
+   <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-content" [innerHTML]="videourl">
+    
+        <!--<div  [innerHTML]="videourl"></div>-->
    </div>
 </div>
-<div class="md1-grid portfolio-max-width" *ngIf="movietrailer" >
-  
+<div class="md1-grid portfolio-max-width" *ngIf="movietrailer" >  
   
   <div class="mdl-card__menu">
     
         <button data-toggle="modal" data-target="#share" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds">
       <i class="material-icons" >share</i>
       </button>
-
-      
-     
-         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="movietrailer.stars" [ngClass]="{'red': movietrailer.stars[movietrailer.uid] }"   (click)="like(movietrailer.id)" >
+    
+     <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="!movietrailer.favourite"    (click)=" addFavourite(movietrailer,movietrailer.id)" >  
          <i class="material-icons"  >favorite_border</i>
+         </button>
+
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="movietrailer.favourite&&!movietrailer.favourite[userid]"    (click)=" addFavourite(movietrailer,movietrailer.id)" >  
+         <i class="material-icons"  >favorite_border</i>
+         </button>
+
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="movietrailer.favourite&&movietrailer.favourite[userid]"  [ngClass]="{'red':movietrailer.favourite[userid] }">
+         <i class="material-icons"  >favorite_border</i>
+         </button>
+
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="movietrailer.stars" [ngClass]="{'red': movietrailer.stars[userid] }"   (click)="like(movietrailer.id)" >
+         <i class="material-icons"  >thumb_up</i>
          </button>
 
          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="!movietrailer.stars"    (click)="like(movietrailer.id)" >
-         <i class="material-icons"  >favorite_border</i>
+         <i class="material-icons"  >thumb_up</i>
          </button>
+     
+      
+     
+         
 
          
          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds" data-toggle="modal" data-target="#rate" (click)="rateThisPost()">
@@ -38,7 +47,11 @@
          </button>-->
 
          <div class='watch-view-count'>
-        
+         
+      <div class='circle' *ngIf="movietrailer">
+         <span class='number' >{{movietrailer.rating}}</span>
+      </div>
+  
          </div>
     
   </div>
@@ -51,96 +64,23 @@
 
 
 <p class="sharethisShare">Share this Article<b>:</b></p>
-<div id="buttonGroupShare">
-  <button id='fbShare' style="background:#325C94;"  (click)="shareFb('http://www.google.com')"><div id="fbCountShare">0</div><a>Facebook</a></button>
-  <button id='twitterShare' style="background:#00ABDC; "  (click)="shareFb('http://www.google.com')"><a>Twitter</a></button>
-  <button id='gplusShare' style="background:#EA3032"  (click)="shareFb('http://www.google.com')"><div id="gooCountShare">0</div><a>Google+</a></button>
-  <button id='liShare' style="background:#0073B2;"  (click)="shareFb('http://www.google.com')"><div id="liCountShare">0</div><a>LinkedIn</a></button>
-  <button id='piShare' style="background:#CB2027"  (click)="shareFb('http://www.google.com')"><div id="piCountShare">0</div><a href="javascript:void((function()%7Bvar%20e=document.createElement(&apos;script&apos;);e.setAttribute(&apos;src&apos;,&apos;http://assets.pinterest.com/js/pinmarklet.js?r=&apos;+Math.random()*99999999);document.body.appendChild(e)%7D)());">Pinterest</a></button>
-</div>
+<div id="buttonGroupShare" *ngIf="movietrailer">
+  <button id='fbShare' style="background:#325C94;"  (click)="shareFb()"><a>Facebook</a></button>
+ <button id='twitterShare' style="background:#00ABDC; "  (click)="shareTwitter(movienews.title)"><a>Twitter</a></button>
+  <button id='gplusShare' style="background:#EA3032"  (click)="shareGplus()"><a>Google+</a></button>
+  <button id='liShare' style="background:#0073B2;"  (click)="shareLinkedin(movienews.title)"><a>LinkedIn</a></button>
+  
 
 
 </div>
 
 
-<!-- <app-dialogue *ngIf='share&&movietrailer'>
-  <div class="modal-header">
-        <h5 class="adbcd-modal-title" id="exampleModalLiveLabel">Share On</h5>
-        <button type="button" class="close" (click)="closeShare()" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-  <div class="modal-body">
-      <a href="https://plus.google.com/share?url={URL}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="assets/images/google.png"  alt='google'/></a>
-      <img src="assets/images/facebook-2.png" (click)="shareOnFB()" alt='facebook'/>
-      <a class="twitter-share-button" href="https://twitter.com/intent/tweet"><img src="assets/images/twitter.png" alt='google'/></a></div>
-      <div class="modal-footer">
-        <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="closeShare()" data-dismiss="modal">Close</button>
-        
-      </div>
-
-</app-dialogue> -->
-
-<div id="share" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">share</h4>
-      </div>
-      <div class="modal-body">
-   <div class="social-icons-services">
-    <div class="social-figure">
-        <div class="facebook">
-            <h2 class="entypo-facebook"></h2>
-        </div>
-        <div class="social-hover">
-            <h2 class="entypo-facebook"></h2>
-        </div>
-    </div>
-    <div class="social-figure">
-        <div class="twitter">
-            <h2 class="entypo-twitter"></h2>
-        </div>
-        <div class="social-hover">
-            <h2 class="entypo-twitter"></h2>
-        </div>
-    </div>
-    <div class="social-figure">
-        <div class="gplus">
-            <h2 class="entypo-gplus"></h2>
-        </div>
-        <div class="social-hover">
-            <h2 class="entypo-gplus"></h2>
-        </div>
-    </div>
-    <div class="social-figure">
-        <div class="pinterest">
-            <h2 class="entypo-pinterest"></h2>
-        </div>
-        <div class="social-hover">
-            <h2 class="entypo-pinterest"></h2>
-        </div>
-    </div>
-    <div class="social-figure">
-        <div class="vimeo">
-            <h2 class="entypo-vimeo"></h2>
-        </div>
-        <div class="social-hover">
-            <h2 class="entypo-vimeo"></h2>
-        </div>
-    </div>
 </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
 
-  </div>
-</div>
+
+
+
+
 
 <div id="rate" class="modal fade" role="dialog">
   <div class="modal-dialog">
