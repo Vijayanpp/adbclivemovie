@@ -9,9 +9,9 @@
                   Movie Title: {{movie.title}}
                </div>
                <div class="mdl-card__actions mdl-card--border padding">
-                 <div class="material-icons mdl-badge mdl-badge--overlap ion" (click)="like(movie.id)" *ngIf="movie.stars" [ngClass]="{'red': movie.stars[userid] }" >thumb_up
+                 <div class="material-icons mdl-badge mdl-badge--overlap ion" (click)="like(movie.id,movie.posttype)" *ngIf="movie.stars" [ngClass]="{'red': movie.stars[userid] }" >thumb_up
                </div>
-               <div class="material-icons mdl-badge mdl-badge--overlap ion" *ngIf="!movie.stars" (click)="like(movie.id)">thumb_up
+               <div class="material-icons mdl-badge mdl-badge--overlap ion" *ngIf="!movie.stars" (click)="like(movie.id,movie.posttype)">thumb_up
                </div>
                <span>{{movie.starCount}}</span>
 

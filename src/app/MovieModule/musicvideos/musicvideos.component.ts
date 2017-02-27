@@ -66,6 +66,7 @@ checkAuthState()
  var obj=data.val();
  obj.id=data.key; 
  self.musicvideos.push(obj);
+ self.musicvideos.reverse();
      
     });
     postsRef.on('child_changed', function(data) {	

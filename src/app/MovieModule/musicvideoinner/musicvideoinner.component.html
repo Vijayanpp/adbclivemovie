@@ -58,9 +58,13 @@
 
 <div class="full-width " *ngIf="musicvideos">
       <h1 class='max-top'>{{musicvideos.songtitle}} | {{musicvideos.title}} </h1>
-      <div [innerHTML]="musicvideos.overview" ></div>
+      
    </div>
 
+<div class=" mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp padding10 " *ngIf="musicvideos">
+     
+      <div  [innerHTML]="musicvideos.overview" ></div>
+   </div>
 
 
 <p class="sharethisShare">Share this Article<b>:</b></p>

@@ -59,7 +59,8 @@ checkAuthState()
  var obj=data.val();
  obj.id=data.key; 
  self.movienews.push(obj);
-     
+ self.movienews.reverse();
+  
     });
     postsRef.on('child_changed', function(data) {	
   var object=data.val();

@@ -58,6 +58,7 @@ checkAuthState()
  var obj=data.val();
  obj.id=data.key; 
  self.filmtrailers.push(obj);
+ self.filmtrailers.reverse();
      
     });
     postsRef.on('child_changed', function(data) {	

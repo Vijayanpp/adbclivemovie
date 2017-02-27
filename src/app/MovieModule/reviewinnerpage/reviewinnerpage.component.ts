@@ -18,7 +18,7 @@ export class ReviewinnerpageComponent implements OnInit {
   public starsid;
   public share:boolean=false;
   public rate:boolean=false;
-
+ public userid;
   constructor(private router: ActivatedRoute, private sanitizer: DomSanitizer,private sharedService:SharedService,private routernav:Router) { 
 
 
@@ -26,6 +26,11 @@ export class ReviewinnerpageComponent implements OnInit {
 
   ngOnInit() {
     this.sharedService.sharedvalue.category="Hollywood";
+    if(firebase.auth().currentUser!=null)
+     {
+       this.userid=firebase.auth().currentUser.uid;
+       
+     }
   	this.router.params.subscribe((params) => {
      
       const id = params['id'];

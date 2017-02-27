@@ -75,13 +75,14 @@ export class MusicvideoinnerComponent implements OnInit {
   }
  
 
-  like(id)
+   like(id)
 { 
+  console.log('hi')
     
    if(firebase.auth().currentUser!=null)
    {
     var uid = firebase.auth().currentUser.uid;
-    var recentPostsRef = firebase.database().ref('posts/Music/'+this.sharedService.sharedvalue.category+'/'+id);
+    var recentPostsRef = firebase.database().ref('posts/Music/dev/'+id);
     this.sharedService.LikethePost(recentPostsRef,uid);  
    }
    else

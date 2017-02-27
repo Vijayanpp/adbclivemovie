@@ -58,9 +58,12 @@
 
 <div class="full-width " *ngIf="movietrailer">
       <h1 class='max-top'>{{movietrailer.songtitle}} | {{movietrailer.title}} </h1>
-      <div [innerHTML]="movietrailer.overview" ></div>
+     
    </div>
-
+<div class=" mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp padding10 " *ngIf="movietrailer">
+     
+      <div  [innerHTML]="movietrailer.overview" ></div>
+   </div>
 
 
 <p class="sharethisShare">Share this Article<b>:</b></p>

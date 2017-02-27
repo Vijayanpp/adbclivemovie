@@ -7,21 +7,30 @@ import { ActivatedRoute,Router } from '@angular/router';
   styleUrls: ['./adbcd-moviecard.component.css']
 })
 export class AdbcdMoviecardComponent implements OnInit {
+  public userid;
  @Input()
  movie:Object;
 
   constructor(private sharedService:SharedService,private router:Router) { }
 
   ngOnInit() {
+    if(firebase.auth().currentUser!=null)
+     {
+       this.userid=firebase.auth().currentUser.uid;
+       
+     }
   }
-like(id)
+
+like(id,cat)
 { 
     
    if(firebase.auth().currentUser!=null)
    {
     var uid = firebase.auth().currentUser.uid;
-    var recentPostsRef = firebase.database().ref('posts/Music/'+this.sharedService.sharedvalue.category+'/'+id);
-    this.sharedService.LikethePost(recentPostsRef,uid);  
+    var recentPostsRef = firebase.database().ref('posts/'+cat+'/'+this.sharedService.sharedvalue.category+'/'+id);
+    var recentPostsRef2= firebase.database().ref('posts/'+cat+'/dev'+'/'+id);
+    this.sharedService.LikethePost(recentPostsRef,uid);
+    this.sharedService.LikethePost(recentPostsRef2,uid);
    }
    else
    {

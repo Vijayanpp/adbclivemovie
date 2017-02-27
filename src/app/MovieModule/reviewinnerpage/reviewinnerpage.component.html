@@ -59,18 +59,23 @@
 
 <div class="full-width " *ngIf="moviereview">
       <h1 class='max-top'>{{moviereview.songtitle}} | {{moviereview.title}} </h1>
-      <div [innerHTML]="moviereview.overview" ></div>
+   
    </div>
 
-
+<div class=" mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp padding10 " *ngIf="moviereview">
+     
+      <div  [innerHTML]="moviereview.overview" ></div>
+   </div>
 
 <p class="sharethisShare">Share this Article<b>:</b></p>
-<div id="buttonGroupShare">
-  <button id='fbShare' style="background:#325C94;"  (click)="shareFb('http://www.google.com')"><div id="fbCountShare">0</div><a>Facebook</a></button>
-  <button id='twitterShare' style="background:#00ABDC; "  (click)="shareFb('http://www.google.com')"><a>Twitter</a></button>
-  <button id='gplusShare' style="background:#EA3032"  (click)="shareFb('http://www.google.com')"><div id="gooCountShare">0</div><a>Google+</a></button>
-  <button id='liShare' style="background:#0073B2;"  (click)="shareFb('http://www.google.com')"><div id="liCountShare">0</div><a>LinkedIn</a></button>
-  <button id='piShare' style="background:#CB2027"  (click)="shareFb('http://www.google.com')"><div id="piCountShare">0</div><a href="javascript:void((function()%7Bvar%20e=document.createElement(&apos;script&apos;);e.setAttribute(&apos;src&apos;,&apos;http://assets.pinterest.com/js/pinmarklet.js?r=&apos;+Math.random()*99999999);document.body.appendChild(e)%7D)());">Pinterest</a></button>
+<div id="buttonGroupShare" *ngIf="movietrailer">
+  <button id='fbShare' style="background:#325C94;"  (click)="shareFb()"><a>Facebook</a></button>
+ <button id='twitterShare' style="background:#00ABDC; "  (click)="shareTwitter(movienews.title)"><a>Twitter</a></button>
+  <button id='gplusShare' style="background:#EA3032"  (click)="shareGplus()"><a>Google+</a></button>
+  <button id='liShare' style="background:#0073B2;"  (click)="shareLinkedin(movienews.title)"><a>LinkedIn</a></button>
+  
+
+
 </div>
 
 

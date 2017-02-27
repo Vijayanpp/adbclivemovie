@@ -202,3 +202,7 @@ h1,h2,p{
   float:right!important;
   margin:-78px auto!important;
 }
+.padding10
+{
+  padding:20px;
+}
