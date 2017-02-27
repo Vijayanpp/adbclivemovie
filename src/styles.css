@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+body
+{
+    font-size:14px!important;
+}
 
 .mdl-card__menu {
     position: absolute;
@@ -41,4 +45,48 @@
 a:hover
 {
 	text-decoration: none;
+}
+
+
+.mdl-list__item
+{
+    font-size:12px!important;
+    padding:10px!important;
+}
+
+.android-header .mdl-navigation__link {
+    color: #757575;
+    font-weight: 700;
+    font-size: 12px!important;
+}
+
+.mdl-card__supporting-text h1 {
+    font-size: 16px!important;
+    color: #000;
+    font-weight: bold!important;
+}
+
+.adbcd-card-square > .mdl-card__title {
+    color: #fff;
+    height: auto;
+    min-height: 208px!important;
+}
+
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px!important;
+}
+
+.mdl-card__actions {
+    font-size: 11px!important;
+    line-height: normal;
+}
+
+
+.mdl-card__supporting-text
+{
+    margin-top:-10px;
 }
