@@ -54,12 +54,12 @@ checkAuthState()
   StartDatabaseQueries(category) {
   // [START my_top_posts_query]
   // var myUserId = firebase.auth().currentUser.uid;
-  console.log('hi')
+  
   var self=this;
   this.sharedService.sharedvalue.category=category;
   self.musicvideos=[];
   
-  var recentPostsRef = firebase.database().ref('posts/Music/'+category).limitToLast(100);
+  var recentPostsRef = firebase.database().ref('posts/Music/dev').limitToLast(100);
  var fetchPosts = function(postsRef) {
  postsRef.on('child_added', function(data) {
 
@@ -72,11 +72,22 @@ checkAuthState()
   var object=data.val();
   object.id=data.key;
    
-  var array= self.musicvideos.filter((obj,index)=>
+   var array= self.musicvideos.filter((obj,index)=>
   {
       if(obj.id==data.key)
         {
-          self.musicvideos.splice(index,1,object);
+          
+          if(obj.starCount!=object.starCount)
+          {
+          self.musicvideos[index].starCount=object.starCount;
+          self.musicvideos[index].stars=object.stars;
+          }
+          if(obj.rating!=object.rating)
+          {
+          self.musicvideos[index].rating=object.rating;          
+          }
+
+
         }
   })
 

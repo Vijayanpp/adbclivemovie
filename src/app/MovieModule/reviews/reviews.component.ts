@@ -69,7 +69,18 @@ checkAuthState()
   {
       if(obj.id==data.key)
         {
-          self.filmreviews.splice(index,1,object);
+          
+          if(obj.starCount!=object.starCount)
+          {
+          self.filmreviews[index].starCount=object.starCount;
+          self.filmreviews[index].stars=object.stars;
+          }
+          if(obj.rating!=object.rating)
+          {
+          self.filmreviews[index].rating=object.rating;          
+          }
+
+
         }
   })
 

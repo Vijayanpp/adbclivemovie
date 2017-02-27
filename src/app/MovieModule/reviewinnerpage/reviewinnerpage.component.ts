@@ -67,13 +67,43 @@ rateThisPost()
 
   this.rate=true;
 }
+
+addFavourite(movienews,id)
+  {
+   
+    if(firebase.auth().currentUser!=null)
+   {
+    
+     var newPostKey = firebase.database().ref().child('posts').push().key;
+     var updates = {};
+     var recentPostsRef = firebase.database().ref('posts/Review/dev/'+id);   
+     var uid = firebase.auth().currentUser.uid;
+     
+     firebase.database().ref().update(updates);     
+     updates['/Favourites/moviereview/' +uid+'/'+newPostKey]=movienews; 
+     firebase.database().ref().update(updates);   
+     this.sharedService.favourite(uid,recentPostsRef); 
+   }
+   else
+   {
+     this.routernav.navigate(['Signin']);
+   }
+  }
+
+
 Rate(count,currentRating,newRating,id)
 {
-    
+   if(firebase.auth().currentUser!=null)
+   { 
   var uid = firebase.auth().currentUser.uid;
   var recentPostsRef = firebase.database().ref('posts/Review/dev/'+id);
    var recentPostsRef2 = firebase.database().ref('posts/Review/'+this.sharedService.sharedvalue.category+'/'+id);
-  this.sharedService.RatethePost(recentPostsRef,count,currentRating,newRating,uid); 
+  this.sharedService.RatethePost(recentPostsRef,count,currentRating,newRating,uid);
+  }
+   else
+   {
+     this.routernav.navigate(['Signin']);
+   }
 }
 closeShare()
 {
@@ -102,41 +132,55 @@ shareOnFB()
 }
 
 
-shareFb(url)
+shareFb()
 {
- 
-  var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
-  return window.open("https://www.facebook.com/sharer.php?u=" + url, "", windowOpenSettings), !1
+    FB.ui({
+   app_id:'568461570013753',
+    method: 'share',
+    
+    display: 'popup',
+    href: 'http://www.adbcd.com',
+  }, function(response){
+    console.log(response.error_message)
+  });
+
 }
   
-  shareGplus(currentURL)
+  shareGplus()
 {
-  
+ 
+  var currentURL=window.location.href;  
   var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
   return window.open("https://plus.google.com/share?url=" + currentURL, "", windowOpenSettings), !1
 }
 
 
-  shareTwitter(currentURL,currentTitle)
+  shareTwitter(currentTitle)
 {
-  
+  var currentURL=window.location.href;
   var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
   return window.open("https://twitter.com/share?url=" + currentURL + "&text=" + currentTitle, "", windowOpenSettings), !1
 }
 
- shareLinkedin(currentURL,currentTitle)
+ shareLinkedin(currentTitle)
 {
-  
+  var currentURL=window.location.href;
   var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
-return window.open("http://www.linkedin.com/shareArticle?mini=true&url=" + currentURL + "&title=" + currentTitle + "&source=", "", windowOpenSettings), !1
+  return window.open("http://www.linkedin.com/shareArticle?mini=true&url=" + currentURL + "&title=" + currentTitle + "&source=", "", windowOpenSettings), !1
 }
 
-sharePin(currentURL,currentTitle)
+sharePin(currentTitle)
 {
-  
+  var currentURL=window.location.href;
   var windowOpenSettings = "height=550,width=525,left=100,top=100,menubar=0";
   return window.open("https://twitter.com/share?url=" + currentURL + "&text=" + currentTitle, "", windowOpenSettings), !1
 }
+
+ngOnDestroy()
+{
+  this.moviereview=[];
+}
+
 
 
 }

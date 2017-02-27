@@ -23,8 +23,9 @@
             <nav class="android-navigation mdl-navigation">
              
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Home</a>
+               <a class="mdl-navigation__link mdl-typography--text-uppercase " href="" routerLink="/Movienews">Movies</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="" routerLink="/News">News</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase " href="" routerLink="/Movienews">Movies</a>
+             
               <a class="mdl-navigation__link mdl-typography--text-uppercase" routerLink="/About" href="">About</a>              
               <a class="mdl-navigation__link mdl-typography--text-uppercase" routerLink="/Contact" href="">Contact us</a>
 
@@ -45,15 +46,16 @@
 
       <div class="android-drawer mdl-layout__drawer">
         <span class="mdl-layout-title">
-          <img class="android-logo-image" src="assets/images/android-logo-white.png">
+          <!--<img class="android-logo-image" src="assets/images/android-logo-white.png">-->
+          adbcd
         </span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link"  id='adbcd-menu-news-lower-left'>News</a>
-          <a class="mdl-navigation__link" id="adbcd-menu-movie-lower-left" >Movies</a>
-          <a class="mdl-navigation__link" href="">About</a>
-          <a class="mdl-navigation__link" href="">Contact</a>
+          <a class="mdl-navigation__link"  id='adbcd-menu-news-lower-left' routerLink="/Movienews">Movies</a>
+          <a class="mdl-navigation__link" id="adbcd-menu-movie-lower-left" routerLink="/News">News</a>
+          <a class="mdl-navigation__link" href="" routerLink="/About" href="">About</a>  
+          <a class="mdl-navigation__link" href="" routerLink="/Contact" href="">Contact us</a>
           <div class="android-drawer-separator"></div>
-          <span class="mdl-navigation__link" href="">Log In</span>
+          <span class="mdl-navigation__link" href="" routerLink="/Signin" routerLinkActive="active">Log In</span>
            <div class="android-drawer-separator"></div>
           <a class="mdl-navigation__link" href="">Offers</a>    
            

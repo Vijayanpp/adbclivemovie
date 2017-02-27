@@ -64,11 +64,22 @@ checkAuthState()
   var object=data.val();
   object.id=data.key;
    
-  var array= self.filmtrailers.filter((obj,index)=>
+   var array= self.filmtrailers.filter((obj,index)=>
   {
       if(obj.id==data.key)
         {
-          self.filmtrailers.splice(index,1,object);
+          
+          if(obj.starCount!=object.starCount)
+          {
+          self.filmtrailers[index].starCount=object.starCount;
+          self.filmtrailers[index].stars=object.stars;
+          }
+          if(obj.rating!=object.rating)
+          {
+          self.filmtrailers[index].rating=object.rating;          
+          }
+
+
         }
   })
 

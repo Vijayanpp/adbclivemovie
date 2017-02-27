@@ -26,14 +26,14 @@ export class MovienewscardComponent implements OnInit {
   }
 
 
-like(id)
+like(id,cat)
 { 
     
    if(firebase.auth().currentUser!=null)
    {
     var uid = firebase.auth().currentUser.uid;
-    var recentPostsRef = firebase.database().ref('posts/News/'+this.sharedService.sharedvalue.category+'/'+id);
-    var recentPostsRef2= firebase.database().ref('posts/News/dev'+'/'+id);
+    var recentPostsRef = firebase.database().ref('posts/'+cat+'/'+this.sharedService.sharedvalue.category+'/'+id);
+    var recentPostsRef2= firebase.database().ref('posts/'+cat+'/dev'+'/'+id);
     this.sharedService.LikethePost(recentPostsRef,uid);
     this.sharedService.LikethePost(recentPostsRef2,uid);
    }

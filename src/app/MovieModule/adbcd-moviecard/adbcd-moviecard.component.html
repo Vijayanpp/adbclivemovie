@@ -9,17 +9,19 @@
                   Movie Title: {{movie.title}}
                </div>
                <div class="mdl-card__actions mdl-card--border padding">
-                  <div class="material-icons mdl-badge mdl-badge--overlap ion">thumb_up
-               </div>               
+                 <div class="material-icons mdl-badge mdl-badge--overlap ion" (click)="like(movie.id)" *ngIf="movie.stars" [ngClass]="{'red': movie.stars[userid] }" >thumb_up
+               </div>
+               <div class="material-icons mdl-badge mdl-badge--overlap ion" *ngIf="!movie.stars" (click)="like(movie.id)">thumb_up
+               </div>
                <span>{{movie.starCount}}</span>
 
                
                  <div class="material-icons mdl-badge mdl-badge--overlap ion">star</div>
-               <span>8.3</span>
+               <span>{{movie.rating}}</span> 
                
             </div>
             <div class="mdl-card__menu">
-               <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+               <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-toggle="modal" data-target="#share" >
                <i class="material-icons">share</i>
                </button>
             </div>

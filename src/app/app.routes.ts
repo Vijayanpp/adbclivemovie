@@ -38,7 +38,7 @@ import { ReviewinnerpageComponent } from './MovieModule/reviewinnerpage/reviewin
 
 
 export const appRoutes: Routes = [
-        {path:'',component:NewsComponent},
+        {path:'',component:MovienewsComponent},
         {path:'News',component:NewsComponent},
         {path:'general',component:NewsComponent},
         {path:'Entertainment',component:EntertainmentnewsComponent},

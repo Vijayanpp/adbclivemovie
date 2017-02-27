@@ -34,9 +34,10 @@ export class MusicvideoinnerComponent implements OnInit {
      
       const id = params['id'];
       var self=this;
-      var adbcd_music=firebase.database().ref('posts/Music/'+this.sharedService.sharedvalue.category+'/').child(id);
+      var adbcd_music=firebase.database().ref('posts/Music/dev'+'/').child(id);
     adbcd_music.on("value", function(snapshot) {
     self.musicvideos=snapshot.val();
+    console.log(snapshot.val())
     self.musicvideos.id=snapshot.key;
     self.musicvideos.views++;
        

@@ -15,19 +15,33 @@
   
   <div class="mdl-card__menu">
     
-        <button data-toggle="modal" data-target="#share" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds">
+       <button data-toggle="modal" data-target="#share" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds">
       <i class="material-icons" >share</i>
       </button>
+    
+     <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="!moviereview.favourite"    (click)=" addFavourite(moviereview,moviereview.id)" >  
+         <i class="material-icons"  >favorite_border</i>
+         </button>
 
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="moviereview.favourite&&!moviereview.favourite[userid]"    (click)=" addFavourite(moviereview,moviereview.id)" >  
+         <i class="material-icons"  >favorite_border</i>
+         </button>
+
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="moviereview.favourite&&moviereview.favourite[userid]"  [ngClass]="{'red':moviereview.favourite[userid] }">
+         <i class="material-icons"  >favorite_border</i>
+         </button>
+
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="moviereview.stars" [ngClass]="{'red': moviereview.stars[userid] }"   (click)="like(moviereview.id)" >
+         <i class="material-icons"  >thumb_up</i>
+         </button>
+
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="!moviereview.stars"    (click)="like(moviereview.id)" >
+         <i class="material-icons"  >thumb_up</i>
+         </button>
+     
       
      
-         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds " *ngIf="moviereview.stars" [ngClass]="{'red': moviereview.stars[moviereview.uid] }"   (click)="like(moviereview.id)" >
-         <i class="material-icons"  >favorite_border</i>
-         </button>
-
-         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds" *ngIf="!moviereview.stars"    (click)="like(moviereview.id)" >
-         <i class="material-icons"  >favorite_border</i>
-         </button>
+         
 
          
          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloreds" data-toggle="modal" data-target="#rate" (click)="rateThisPost()">
