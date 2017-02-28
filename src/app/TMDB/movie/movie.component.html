@@ -27,18 +27,22 @@
          </button>
       </div>
    </div> -->
+    <div lass="mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card">
    <div class="full-width ">
       <h1>{{movie.title}}</h1>
       <div [innerHTML]="movie.overview"></div>
       
    </div>
    </div>
+   </div>
 
    <div class="mdl-grid portfolio-max-width" *ngIf="cast">
-
-   <div class="full-width ">
+     <div class="full-width ">
       <h2>Actors</h2>
    </div>
+  <!--<div lass="mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card">
+   
+   </div>-->
    
   <!--  <div *ngIf="cast && cast.length > 0" class="mdl-grid mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp">
    <div class="img-contents" *ngFor="let actor of cast">
