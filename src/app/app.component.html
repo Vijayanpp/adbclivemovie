@@ -30,11 +30,12 @@
               <a class="mdl-navigation__link mdl-typography--text-uppercase"  href="http://www.adbcd.com/contact-us/">Contact us</a>
 
               <a class="mdl-navigation__link mdl-typography--text-uppercase" routerLink="/Signin" routerLinkActive="active" *ngIf='!this.sharedService.sharedvalue.signin' href="">Login</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" (click)="logout()" href="" *ngIf='this.sharedService.sharedvalue.signin'>Logout</a>
 
-              <div class='ad_bc_d' [ngStyle]="{'background': 'url(' + imgUrl + ') center/cover'}" *ngIf='this.sharedService.sharedvalue.signin'>
+              <!--<div class='ad_bc_d' [ngStyle]="{'background': 'url(' + imgUrl + ') center/cover'}" *ngIf='this.sharedService.sharedvalue.signin'>
               
                
-              </div>
+              </div>-->
               
             </nav>
           </div>
@@ -54,7 +55,8 @@
           <a class="mdl-navigation__link" href="http://www.adbcd.com/about/" >About</a>  
           <a class="mdl-navigation__link" href="http://www.adbcd.com/contact-us/"  href="">Contact us</a>
           <div class="android-drawer-separator"></div>
-          <span class="mdl-navigation__link" href="" routerLink="/Signin" routerLinkActive="active">Log In</span>
+          <a class="mdl-navigation__link" href="" routerLink="/Signin"  *ngIf='!this.sharedService.sharedvalue.signin' routerLinkActive="active">LogIn</a>
+           <a class="mdl-navigation__link" href=""  (click)="logout()" *ngIf='this.sharedService.sharedvalue.signin'>Logout</a>
            <div class="android-drawer-separator"></div>
           <a class="mdl-navigation__link" href="">Offers</a>    
            
