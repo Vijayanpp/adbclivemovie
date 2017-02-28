@@ -961,3 +961,17 @@ p
 {
     margin-top:-10px;
 }
+
+
+@media(max-width:1024px)
+{
+  .sidebar
+  {
+    display: none;
+  }
+
+  .portfolio-max-width
+  {
+    left:0px!important;
+  }
+}
